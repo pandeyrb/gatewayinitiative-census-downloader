@@ -1,0 +1,161 @@
+# 26 Massachusetts Gateway Cities
+# Source: MassHousing Gateway Cities designation
+# Place FIPS verified against Census ACS 5-year 2022 API (acs/acs5, place:*, in state:25)
+# County FIPS from Census TIGER/ANSI codes
+# All place_fips are 5-digit; county_fips are 3-digit within MA (state_fips: "25")
+
+agawam:
+  name: Agawam
+  state_fips: "25"
+  place_fips: "00840"   # "Agawam Town city, Massachusetts"
+  county_fips: "013"    # Hampden County
+
+brockton:
+  name: Brockton
+  state_fips: "25"
+  place_fips: "09000"
+  county_fips: "023"    # Plymouth County
+
+chelsea:
+  name: Chelsea
+  state_fips: "25"
+  place_fips: "13205"
+  county_fips: "025"    # Suffolk County
+
+chicopee:
+  name: Chicopee
+  state_fips: "25"
+  place_fips: "13660"
+  county_fips: "013"    # Hampden County
+
+everett:
+  name: Everett
+  state_fips: "25"
+  place_fips: "21990"
+  county_fips: "017"    # Middlesex County
+
+fall_river:
+  name: Fall River
+  state_fips: "25"
+  place_fips: "23000"
+  county_fips: "005"    # Bristol County
+
+fitchburg:
+  name: Fitchburg
+  state_fips: "25"
+  place_fips: "23875"   # was "24960" (incorrect)
+  county_fips: "027"    # Worcester County
+
+haverhill:
+  name: Haverhill
+  state_fips: "25"
+  place_fips: "29405"
+  county_fips: "009"    # Essex County
+
+holyoke:
+  name: Holyoke
+  state_fips: "25"
+  place_fips: "30840"   # was "31490" (incorrect)
+  county_fips: "013"    # Hampden County
+
+lawrence:
+  name: Lawrence
+  state_fips: "25"
+  place_fips: "34550"   # was "37000" (that is Lowell)
+  county_fips: "009"    # Essex County
+
+leominster:
+  name: Leominster
+  state_fips: "25"
+  place_fips: "35075"   # was "37490" (that is Lynn)
+  county_fips: "027"    # Worcester County
+
+lowell:
+  name: Lowell
+  state_fips: "25"
+  place_fips: "37000"   # was "38715" (incorrect)
+  county_fips: "017"    # Middlesex County
+
+lynn:
+  name: Lynn
+  state_fips: "25"
+  place_fips: "37490"   # was "39835" (incorrect)
+  county_fips: "009"    # Essex County
+
+malden:
+  name: Malden
+  state_fips: "25"
+  place_fips: "37875"   # was "40115" (incorrect)
+  county_fips: "017"    # Middlesex County
+
+methuen:
+  name: Methuen
+  state_fips: "25"
+  place_fips: "40710"   # was "43875" (incorrect); API name: "Methuen Town city"
+  county_fips: "009"    # Essex County
+
+new_bedford:
+  name: New Bedford
+  state_fips: "25"
+  place_fips: "45000"
+  county_fips: "005"    # Bristol County
+
+peabody:
+  name: Peabody
+  state_fips: "25"
+  place_fips: "52490"   # was "51230" (incorrect)
+  county_fips: "009"    # Essex County
+
+pittsfield:
+  name: Pittsfield
+  state_fips: "25"
+  place_fips: "53960"   # was "51840" (incorrect)
+  county_fips: "003"    # Berkshire County
+
+quincy:
+  name: Quincy
+  state_fips: "25"
+  place_fips: "55745"
+  county_fips: "021"    # Norfolk County
+
+revere:
+  name: Revere
+  state_fips: "25"
+  place_fips: "56585"   # was "58785" (incorrect)
+  county_fips: "025"    # Suffolk County
+
+salem:
+  name: Salem
+  state_fips: "25"
+  place_fips: "59105"   # was "60645" (incorrect)
+  county_fips: "009"    # Essex County
+
+southbridge:
+  name: Southbridge
+  state_fips: "25"
+  place_fips: "63345"   # was "63385" (incorrect); API name: "Southbridge Town city"
+  county_fips: "027"    # Worcester County
+
+springfield:
+  name: Springfield
+  state_fips: "25"
+  place_fips: "67000"
+  county_fips: "013"    # Hampden County
+
+taunton:
+  name: Taunton
+  state_fips: "25"
+  place_fips: "69170"   # was "72600" (incorrect)
+  county_fips: "005"    # Bristol County
+
+westfield:
+  name: Westfield
+  state_fips: "25"
+  place_fips: "76030"   # was "78972" (incorrect)
+  county_fips: "013"    # Hampden County
+
+worcester:
+  name: Worcester
+  state_fips: "25"
+  place_fips: "82000"
+  county_fips: "027"    # Worcester County

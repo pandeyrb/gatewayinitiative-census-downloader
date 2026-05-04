@@ -33,7 +33,7 @@ def run_pipeline(
         raise SystemExit(f"Unknown city slug '{city_slug}'. Available: {available}")
     city_config = cities[city_slug]
 
-    variables, var_to_group = load_topic(topic, config_dir)
+    variables, var_to_group, _var_to_label = load_topic(topic, config_dir)
     dataset = _get_dataset(config_dir, topic)
 
     print(f"\nCity:      {city_config['name']}")

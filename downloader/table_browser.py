@@ -134,9 +134,10 @@ def generate_topic_yaml(
         if not shell:
             print(f"  WARNING: no variables found for {tid} — skipped.", file=sys.stderr)
             continue
+        readable = shell_to_readable(shell)
         variable_groups[tid.lower()] = {
             "label": groups_lookup.get(tid, tid),
-            "variables": list(shell.keys()),
+            "variables": [{"code": code, "label": readable[code]} for code in shell.keys()],
         }
 
     return {

@@ -5,7 +5,10 @@ variable_groups:
   b99151:
     label: Allocation of Educational Attainment for the Population 25 Years and Over
     variables:
-    - B99151_001E
-    - B99151_002E
-    - B99151_003E
-    - NAME
+      - code: B99151_001E
+        label: "Total"
+      - code: B99151_002E
+        label: "Allocated"
+      - code: B99151_003E
+        label: "Not allocated"
+      - NAME

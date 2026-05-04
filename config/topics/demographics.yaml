@@ -4,7 +4,7 @@ year: 2022
 
 # Each group maps to a sub-theme label used in the variable-to-group dictionary.
 # To add variables: append to an existing list or create a new group block.
-# Variable codes must match pattern: ^[A-Z][0-9]+_[0-9]+[EM]$
+# Variable entries use {code, label} format so the codebook includes human-readable names.
 
 variable_groups:
 
@@ -12,210 +12,384 @@ variable_groups:
     label: "Population & Age"
     variables:
       # --- Summary totals ---
-      - B01001_001E  # Total population
-      - B01002_001E  # Median age (both sexes)
+      - code: B01001_001E
+        label: "Total population"
+      - code: B01002_001E
+        label: "Median age (both sexes)"
       # --- Sex by age (B01001) ---
-      - B01001_002E  # Male: Total
-      - B01001_003E  # Male: Under 5 years
-      - B01001_004E  # Male: 5 to 9 years
-      - B01001_005E  # Male: 10 to 14 years
-      - B01001_006E  # Male: 15 to 17 years
-      - B01001_007E  # Male: 18 and 19 years
-      - B01001_008E  # Male: 20 years
-      - B01001_009E  # Male: 21 years
-      - B01001_010E  # Male: 22 to 24 years
-      - B01001_011E  # Male: 25 to 29 years
-      - B01001_012E  # Male: 30 to 34 years
-      - B01001_013E  # Male: 35 to 39 years
-      - B01001_014E  # Male: 40 to 44 years
-      - B01001_015E  # Male: 45 to 49 years
-      - B01001_016E  # Male: 50 to 54 years
-      - B01001_017E  # Male: 55 to 59 years
-      - B01001_018E  # Male: 60 and 61 years
-      - B01001_019E  # Male: 62 to 64 years
-      - B01001_020E  # Male: 65 and 66 years
-      - B01001_021E  # Male: 67 to 69 years
-      - B01001_022E  # Male: 70 to 74 years
-      - B01001_023E  # Male: 75 to 79 years
-      - B01001_024E  # Male: 80 to 84 years
-      - B01001_025E  # Male: 85 years and over
-      - B01001_026E  # Female: Total
-      - B01001_027E  # Female: Under 5 years
-      - B01001_028E  # Female: 5 to 9 years
-      - B01001_029E  # Female: 10 to 14 years
-      - B01001_030E  # Female: 15 to 17 years
-      - B01001_031E  # Female: 18 and 19 years
-      - B01001_032E  # Female: 20 years
-      - B01001_033E  # Female: 21 years
-      - B01001_034E  # Female: 22 to 24 years
-      - B01001_035E  # Female: 25 to 29 years
-      - B01001_036E  # Female: 30 to 34 years
-      - B01001_037E  # Female: 35 to 39 years
-      - B01001_038E  # Female: 40 to 44 years
-      - B01001_039E  # Female: 45 to 49 years
-      - B01001_040E  # Female: 50 to 54 years
-      - B01001_041E  # Female: 55 to 59 years
-      - B01001_042E  # Female: 60 and 61 years
-      - B01001_043E  # Female: 62 to 64 years
-      - B01001_044E  # Female: 65 and 66 years
-      - B01001_045E  # Female: 67 to 69 years
-      - B01001_046E  # Female: 70 to 74 years
-      - B01001_047E  # Female: 75 to 79 years
-      - B01001_048E  # Female: 80 to 84 years
-      - B01001_049E  # Female: 85 years and over
+      - code: B01001_002E
+        label: "Male: Total"
+      - code: B01001_003E
+        label: "Male: Under 5 years"
+      - code: B01001_004E
+        label: "Male: 5 to 9 years"
+      - code: B01001_005E
+        label: "Male: 10 to 14 years"
+      - code: B01001_006E
+        label: "Male: 15 to 17 years"
+      - code: B01001_007E
+        label: "Male: 18 and 19 years"
+      - code: B01001_008E
+        label: "Male: 20 years"
+      - code: B01001_009E
+        label: "Male: 21 years"
+      - code: B01001_010E
+        label: "Male: 22 to 24 years"
+      - code: B01001_011E
+        label: "Male: 25 to 29 years"
+      - code: B01001_012E
+        label: "Male: 30 to 34 years"
+      - code: B01001_013E
+        label: "Male: 35 to 39 years"
+      - code: B01001_014E
+        label: "Male: 40 to 44 years"
+      - code: B01001_015E
+        label: "Male: 45 to 49 years"
+      - code: B01001_016E
+        label: "Male: 50 to 54 years"
+      - code: B01001_017E
+        label: "Male: 55 to 59 years"
+      - code: B01001_018E
+        label: "Male: 60 and 61 years"
+      - code: B01001_019E
+        label: "Male: 62 to 64 years"
+      - code: B01001_020E
+        label: "Male: 65 and 66 years"
+      - code: B01001_021E
+        label: "Male: 67 to 69 years"
+      - code: B01001_022E
+        label: "Male: 70 to 74 years"
+      - code: B01001_023E
+        label: "Male: 75 to 79 years"
+      - code: B01001_024E
+        label: "Male: 80 to 84 years"
+      - code: B01001_025E
+        label: "Male: 85 years and over"
+      - code: B01001_026E
+        label: "Female: Total"
+      - code: B01001_027E
+        label: "Female: Under 5 years"
+      - code: B01001_028E
+        label: "Female: 5 to 9 years"
+      - code: B01001_029E
+        label: "Female: 10 to 14 years"
+      - code: B01001_030E
+        label: "Female: 15 to 17 years"
+      - code: B01001_031E
+        label: "Female: 18 and 19 years"
+      - code: B01001_032E
+        label: "Female: 20 years"
+      - code: B01001_033E
+        label: "Female: 21 years"
+      - code: B01001_034E
+        label: "Female: 22 to 24 years"
+      - code: B01001_035E
+        label: "Female: 25 to 29 years"
+      - code: B01001_036E
+        label: "Female: 30 to 34 years"
+      - code: B01001_037E
+        label: "Female: 35 to 39 years"
+      - code: B01001_038E
+        label: "Female: 40 to 44 years"
+      - code: B01001_039E
+        label: "Female: 45 to 49 years"
+      - code: B01001_040E
+        label: "Female: 50 to 54 years"
+      - code: B01001_041E
+        label: "Female: 55 to 59 years"
+      - code: B01001_042E
+        label: "Female: 60 and 61 years"
+      - code: B01001_043E
+        label: "Female: 62 to 64 years"
+      - code: B01001_044E
+        label: "Female: 65 and 66 years"
+      - code: B01001_045E
+        label: "Female: 67 to 69 years"
+      - code: B01001_046E
+        label: "Female: 70 to 74 years"
+      - code: B01001_047E
+        label: "Female: 75 to 79 years"
+      - code: B01001_048E
+        label: "Female: 80 to 84 years"
+      - code: B01001_049E
+        label: "Female: 85 years and over"
 
   race:
     label: "Race"
     variables:
-      - B02001_001E  # Total (race universe)
-      - B02001_002E  # White alone
-      - B02001_003E  # Black or African American alone
-      - B02001_004E  # American Indian and Alaska Native alone
-      - B02001_005E  # Asian alone
-      - B02001_006E  # Native Hawaiian and Other Pacific Islander alone
-      - B02001_007E  # Some other race alone
-      - B02001_008E  # Two or more races
-      - B02001_009E  # Two races including some other race
-      - B02001_010E  # Two races excluding some other race, and three or more races
+      - code: B02001_001E
+        label: "Total (race universe)"
+      - code: B02001_002E
+        label: "White alone"
+      - code: B02001_003E
+        label: "Black or African American alone"
+      - code: B02001_004E
+        label: "American Indian and Alaska Native alone"
+      - code: B02001_005E
+        label: "Asian alone"
+      - code: B02001_006E
+        label: "Native Hawaiian and Other Pacific Islander alone"
+      - code: B02001_007E
+        label: "Some other race alone"
+      - code: B02001_008E
+        label: "Two or more races"
+      - code: B02001_009E
+        label: "Two races including some other race"
+      - code: B02001_010E
+        label: "Two races excluding some other race, and three or more races"
 
   hispanic_latino:
     label: "Hispanic/Latino Ethnicity"
     variables:
-      - B03001_001E  # Total
-      - B03001_002E  # Not Hispanic or Latino
-      - B03001_003E  # Hispanic or Latino
-      - B03001_004E  # Mexican
-      - B03001_005E  # Puerto Rican
-      - B03001_006E  # Cuban
-      - B03001_007E  # Dominican
-      - B03001_008E  # Central American
-      - B03001_009E  # Costa Rican
-      - B03001_010E  # Guatemalan
-      - B03001_011E  # Honduran
-      - B03001_012E  # Nicaraguan
-      - B03001_013E  # Panamanian
-      - B03001_014E  # Salvadoran
-      - B03001_015E  # Other Central American
-      - B03001_016E  # South American
-      - B03001_017E  # Argentinean
-      - B03001_018E  # Bolivian
-      - B03001_019E  # Chilean
-      - B03001_020E  # Colombian
-      - B03001_021E  # Ecuadorian
-      - B03001_022E  # Paraguayan
-      - B03001_023E  # Peruvian
-      - B03001_024E  # Uruguayan
-      - B03001_025E  # Venezuelan
-      - B03001_026E  # Other South American
-      - B03001_027E  # Other Hispanic or Latino
-      - B03001_028E  # Spaniard
-      - B03001_029E  # Spanish
-      - B03001_030E  # Spanish American
-      - B03001_031E  # All other Hispanic or Latino
+      - code: B03001_001E
+        label: "Total"
+      - code: B03001_002E
+        label: "Not Hispanic or Latino"
+      - code: B03001_003E
+        label: "Hispanic or Latino"
+      - code: B03001_004E
+        label: "Mexican"
+      - code: B03001_005E
+        label: "Puerto Rican"
+      - code: B03001_006E
+        label: "Cuban"
+      - code: B03001_007E
+        label: "Dominican"
+      - code: B03001_008E
+        label: "Central American"
+      - code: B03001_009E
+        label: "Costa Rican"
+      - code: B03001_010E
+        label: "Guatemalan"
+      - code: B03001_011E
+        label: "Honduran"
+      - code: B03001_012E
+        label: "Nicaraguan"
+      - code: B03001_013E
+        label: "Panamanian"
+      - code: B03001_014E
+        label: "Salvadoran"
+      - code: B03001_015E
+        label: "Other Central American"
+      - code: B03001_016E
+        label: "South American"
+      - code: B03001_017E
+        label: "Argentinean"
+      - code: B03001_018E
+        label: "Bolivian"
+      - code: B03001_019E
+        label: "Chilean"
+      - code: B03001_020E
+        label: "Colombian"
+      - code: B03001_021E
+        label: "Ecuadorian"
+      - code: B03001_022E
+        label: "Paraguayan"
+      - code: B03001_023E
+        label: "Peruvian"
+      - code: B03001_024E
+        label: "Uruguayan"
+      - code: B03001_025E
+        label: "Venezuelan"
+      - code: B03001_026E
+        label: "Other South American"
+      - code: B03001_027E
+        label: "Other Hispanic or Latino"
+      - code: B03001_028E
+        label: "Spaniard"
+      - code: B03001_029E
+        label: "Spanish"
+      - code: B03001_030E
+        label: "Spanish American"
+      - code: B03001_031E
+        label: "All other Hispanic or Latino"
 
   nativity:
     label: "Nativity & Citizenship"
     variables:
-      - B05001_001E  # Total (citizenship)
-      - B05001_002E  # US citizen, born in US
-      - B05001_003E  # US citizen, born in Puerto Rico or US territories
-      - B05001_004E  # US citizen, born abroad of US parent(s)
-      - B05001_005E  # US citizen by naturalization
-      - B05001_006E  # Not a US citizen
+      - code: B05001_001E
+        label: "Total (citizenship universe)"
+      - code: B05001_002E
+        label: "US citizen, born in US"
+      - code: B05001_003E
+        label: "US citizen, born in Puerto Rico or US territories"
+      - code: B05001_004E
+        label: "US citizen, born abroad of US parent(s)"
+      - code: B05001_005E
+        label: "US citizen by naturalization"
+      - code: B05001_006E
+        label: "Not a US citizen"
 
   language:
     label: "Language Spoken at Home"
     variables:
-      - B06007_001E  # Total (language)
-      - B06007_002E  # Speak only English
-      - B06007_003E  # Speak Spanish
-      - B06007_004E  # Speak Spanish — speak English less than very well
-      - B06007_005E  # Speak other Indo-European languages
-      - B06007_006E  # Speak other Indo-European — speak English less than very well
-      - B06007_007E  # Speak Asian and Pacific Island languages
-      - B06007_008E  # Speak Asian/PI — speak English less than very well
-      - B06007_009E  # Speak other languages
+      - code: B06007_001E
+        label: "Total (language universe)"
+      - code: B06007_002E
+        label: "Speak only English"
+      - code: B06007_003E
+        label: "Speak Spanish"
+      - code: B06007_004E
+        label: "Speak Spanish — speak English less than very well"
+      - code: B06007_005E
+        label: "Speak other Indo-European languages"
+      - code: B06007_006E
+        label: "Speak other Indo-European — speak English less than very well"
+      - code: B06007_007E
+        label: "Speak Asian and Pacific Island languages"
+      - code: B06007_008E
+        label: "Speak Asian/PI — speak English less than very well"
+      - code: B06007_009E
+        label: "Speak other languages"
 
   income:
     label: "Income"
     variables:
-      - B19013_001E  # Median household income
-      - B19001_001E  # Household income: Total
-      - B19001_002E  # Less than $10,000
-      - B19001_003E  # $10,000 to $14,999
-      - B19001_004E  # $15,000 to $19,999
-      - B19001_005E  # $20,000 to $24,999
-      - B19001_006E  # $25,000 to $29,999
-      - B19001_007E  # $30,000 to $34,999
-      - B19001_008E  # $35,000 to $39,999
-      - B19001_009E  # $40,000 to $44,999
-      - B19001_010E  # $45,000 to $49,999
-      - B19001_011E  # $50,000 to $59,999
-      - B19001_012E  # $60,000 to $74,999
-      - B19001_013E  # $75,000 to $99,999
-      - B19001_014E  # $100,000 to $124,999
-      - B19001_015E  # $125,000 to $149,999
-      - B19001_016E  # $150,000 to $199,999
-      - B19001_017E  # $200,000 or more
+      - code: B19013_001E
+        label: "Median household income"
+      - code: B19001_001E
+        label: "Household income: Total"
+      - code: B19001_002E
+        label: "Less than $10,000"
+      - code: B19001_003E
+        label: "$10,000 to $14,999"
+      - code: B19001_004E
+        label: "$15,000 to $19,999"
+      - code: B19001_005E
+        label: "$20,000 to $24,999"
+      - code: B19001_006E
+        label: "$25,000 to $29,999"
+      - code: B19001_007E
+        label: "$30,000 to $34,999"
+      - code: B19001_008E
+        label: "$35,000 to $39,999"
+      - code: B19001_009E
+        label: "$40,000 to $44,999"
+      - code: B19001_010E
+        label: "$45,000 to $49,999"
+      - code: B19001_011E
+        label: "$50,000 to $59,999"
+      - code: B19001_012E
+        label: "$60,000 to $74,999"
+      - code: B19001_013E
+        label: "$75,000 to $99,999"
+      - code: B19001_014E
+        label: "$100,000 to $124,999"
+      - code: B19001_015E
+        label: "$125,000 to $149,999"
+      - code: B19001_016E
+        label: "$150,000 to $199,999"
+      - code: B19001_017E
+        label: "$200,000 or more"
 
   poverty:
     label: "Poverty"
     variables:
-      - B17001_001E  # Total (poverty status)
-      - B17001_002E  # Below poverty level
-      - B17001_003E  # Male: below poverty level
-      - B17001_004E  # Female: below poverty level
-      - B17020_001E  # Total (poverty by race — all races)
-      - B17020_002E  # Below poverty level
-      - B17020_003E  # At or above poverty level
+      - code: B17001_001E
+        label: "Total (poverty status universe)"
+      - code: B17001_002E
+        label: "Below poverty level"
+      - code: B17001_003E
+        label: "Male: below poverty level"
+      - code: B17001_004E
+        label: "Female: below poverty level"
+      - code: B17020_001E
+        label: "Total (poverty by race — all races)"
+      - code: B17020_002E
+        label: "Below poverty level"
+      - code: B17020_003E
+        label: "At or above poverty level"
 
   housing_units:
     label: "Housing Units"
     variables:
-      - B25001_001E  # Total housing units
-      - B25002_001E  # Occupancy status: Total
-      - B25002_002E  # Occupied
-      - B25002_003E  # Vacant
-      - B25003_001E  # Tenure: Total
-      - B25003_002E  # Owner occupied
-      - B25003_003E  # Renter occupied
+      - code: B25001_001E
+        label: "Total housing units"
+      - code: B25002_001E
+        label: "Occupancy status: Total"
+      - code: B25002_002E
+        label: "Occupied"
+      - code: B25002_003E
+        label: "Vacant"
+      - code: B25003_001E
+        label: "Tenure: Total"
+      - code: B25003_002E
+        label: "Owner occupied"
+      - code: B25003_003E
+        label: "Renter occupied"
 
   housing_costs:
     label: "Housing Costs"
     variables:
-      - B25064_001E  # Median gross rent
-      - B25077_001E  # Median value (owner-occupied units)
-      - B25070_001E  # Gross rent as % of income: Total
-      - B25070_002E  # Less than 10.0 percent
-      - B25070_003E  # 10.0 to 14.9 percent
-      - B25070_004E  # 15.0 to 19.9 percent
-      - B25070_005E  # 20.0 to 24.9 percent
-      - B25070_006E  # 25.0 to 29.9 percent
-      - B25070_007E  # 30.0 to 34.9 percent
-      - B25070_008E  # 35.0 to 39.9 percent
-      - B25070_009E  # 40.0 to 49.9 percent
-      - B25070_010E  # 50.0 percent or more
-      - B25070_011E  # Not computed
-      - B25091_001E  # Selected monthly owner costs as % of income: Total
-      - B25091_002E  # Housing units with a mortgage: Less than 10.0%
-      - B25091_003E  # 10.0 to 14.9%
-      - B25091_004E  # 15.0 to 19.9%
-      - B25091_005E  # 20.0 to 24.9%
-      - B25091_006E  # 25.0 to 29.9%
-      - B25091_007E  # 30.0 to 34.9%
-      - B25091_008E  # 35.0 to 39.9%
-      - B25091_009E  # 40.0 to 49.9%
-      - B25091_010E  # 50.0 percent or more
-      - B25091_011E  # Not computed (with mortgage)
-      - B25091_012E  # Housing units without a mortgage: Less than 10.0%
-      - B25091_013E  # 10.0 to 14.9%
-      - B25091_014E  # 15.0 to 19.9%
-      - B25091_015E  # 20.0 to 24.9%
-      - B25091_016E  # 25.0 to 29.9%
-      - B25091_017E  # 30.0 to 34.9%
-      - B25091_018E  # 35.0 to 39.9%
-      - B25091_019E  # 40.0 to 49.9%
-      - B25091_020E  # 50.0 percent or more
-      - B25091_021E  # Not computed (without mortgage)
-      - B25091_022E  # Zero or negative income (with mortgage)
-      - B25091_023E  # Zero or negative income (without mortgage)
+      - code: B25064_001E
+        label: "Median gross rent"
+      - code: B25077_001E
+        label: "Median value (owner-occupied units)"
+      - code: B25070_001E
+        label: "Gross rent as % of income: Total"
+      - code: B25070_002E
+        label: "Gross rent: Less than 10.0 percent"
+      - code: B25070_003E
+        label: "Gross rent: 10.0 to 14.9 percent"
+      - code: B25070_004E
+        label: "Gross rent: 15.0 to 19.9 percent"
+      - code: B25070_005E
+        label: "Gross rent: 20.0 to 24.9 percent"
+      - code: B25070_006E
+        label: "Gross rent: 25.0 to 29.9 percent"
+      - code: B25070_007E
+        label: "Gross rent: 30.0 to 34.9 percent"
+      - code: B25070_008E
+        label: "Gross rent: 35.0 to 39.9 percent"
+      - code: B25070_009E
+        label: "Gross rent: 40.0 to 49.9 percent"
+      - code: B25070_010E
+        label: "Gross rent: 50.0 percent or more"
+      - code: B25070_011E
+        label: "Gross rent: Not computed"
+      - code: B25091_001E
+        label: "Selected monthly owner costs as % of income: Total"
+      - code: B25091_002E
+        label: "With mortgage: Less than 10.0%"
+      - code: B25091_003E
+        label: "With mortgage: 10.0 to 14.9%"
+      - code: B25091_004E
+        label: "With mortgage: 15.0 to 19.9%"
+      - code: B25091_005E
+        label: "With mortgage: 20.0 to 24.9%"
+      - code: B25091_006E
+        label: "With mortgage: 25.0 to 29.9%"
+      - code: B25091_007E
+        label: "With mortgage: 30.0 to 34.9%"
+      - code: B25091_008E
+        label: "With mortgage: 35.0 to 39.9%"
+      - code: B25091_009E
+        label: "With mortgage: 40.0 to 49.9%"
+      - code: B25091_010E
+        label: "With mortgage: 50.0 percent or more"
+      - code: B25091_011E
+        label: "With mortgage: Not computed"
+      - code: B25091_012E
+        label: "Without mortgage: Less than 10.0%"
+      - code: B25091_013E
+        label: "Without mortgage: 10.0 to 14.9%"
+      - code: B25091_014E
+        label: "Without mortgage: 15.0 to 19.9%"
+      - code: B25091_015E
+        label: "Without mortgage: 20.0 to 24.9%"
+      - code: B25091_016E
+        label: "Without mortgage: 25.0 to 29.9%"
+      - code: B25091_017E
+        label: "Without mortgage: 30.0 to 34.9%"
+      - code: B25091_018E
+        label: "Without mortgage: 35.0 to 39.9%"
+      - code: B25091_019E
+        label: "Without mortgage: 40.0 to 49.9%"
+      - code: B25091_020E
+        label: "Without mortgage: 50.0 percent or more"
+      - code: B25091_021E
+        label: "Without mortgage: Not computed"
+      - code: B25091_022E
+        label: "Zero or negative income (with mortgage)"
+      - code: B25091_023E
+        label: "Zero or negative income (without mortgage)"

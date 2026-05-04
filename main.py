@@ -119,8 +119,9 @@ def main(city, topic, year, geo, dataset, output_format, dry_run, codebook,
 # ======================================================================= #
 
 def _write_codebook(topic: str, config_dir: Path, output_dir: Path) -> None:
-    """Generate a CSV codebook for a topic: variable_code, group_key, sub_theme, topic, dataset, year."""
+    """Generate a CSV codebook for a topic: variable_code, label, group_key, sub_theme, topic, dataset, year."""
     import csv
+    from downloader.variable_loader import load_topic
 
     yaml_path = config_dir / "topics" / f"{topic}.yaml"
     if not yaml_path.exists():
@@ -134,25 +135,33 @@ def _write_codebook(topic: str, config_dir: Path, output_dir: Path) -> None:
     year       = config.get("year", "")
     groups     = config.get("variable_groups", {})
 
-    rows = []
+    variables, var_to_group, var_to_label = load_topic(topic, config_dir)
+
+    # Build group_key lookup: variable_code → group_key
+    var_to_group_key: dict[str, str] = {}
     for group_key, group in groups.items():
-        label = group.get("label", group_key)
-        for code in group.get("variables", []):
-            rows.append({
-                "topic":         topic_name,
-                "dataset":       dataset,
-                "year":          year,
-                "group_key":     group_key,
-                "sub_theme":     label,
-                "variable_code": code,
-            })
+        for entry in group.get("variables", []):
+            code = entry.get("code", entry) if isinstance(entry, dict) else entry
+            var_to_group_key[str(code)] = group_key
+
+    rows = []
+    for code in variables:
+        rows.append({
+            "topic":         topic_name,
+            "dataset":       dataset,
+            "year":          year,
+            "group_key":     var_to_group_key.get(code, ""),
+            "sub_theme":     var_to_group.get(code, ""),
+            "variable_code": code,
+            "label":         var_to_label.get(code, ""),
+        })
 
     out_dir = output_dir / "codebooks"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{topic}_codebook.csv"
 
     with out_path.open("w", newline="") as fh:
-        writer = csv.DictWriter(fh, fieldnames=["topic", "dataset", "year", "group_key", "sub_theme", "variable_code"])
+        writer = csv.DictWriter(fh, fieldnames=["topic", "dataset", "year", "group_key", "sub_theme", "variable_code", "label"])
         writer.writeheader()
         writer.writerows(rows)
 
@@ -160,7 +169,7 @@ def _write_codebook(topic: str, config_dir: Path, output_dir: Path) -> None:
     click.echo()
     click.echo(f"  {'group_key':<22}  {'sub_theme':<35}  {'n_vars':>6}")
     click.echo("  " + "-" * 68)
-    seen = {}
+    seen: dict[str, dict] = {}
     for row in rows:
         k = row["group_key"]
         seen[k] = seen.get(k, {"sub_theme": row["sub_theme"], "count": 0})

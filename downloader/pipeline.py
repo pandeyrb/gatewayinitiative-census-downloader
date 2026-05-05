@@ -6,10 +6,12 @@ Usage (called from main.py):
                  output_dir=Path("outputs"), output_format="csv", dry_run=False)
 """
 
+import csv
 import sys
 from pathlib import Path
 
 import pandas as pd
+import yaml
 
 from downloader.census_client import CensusClient
 from downloader.geo_resolver import GEO_LEVELS
@@ -92,13 +94,63 @@ def run_pipeline(
     for level, df in results.items():
         print(f"  {level:15s}  {len(df):>6} rows  {len(df.columns):>4} columns")
 
+    if not dry_run:
+        cb_path = _write_codebook(topic, config_dir, output_dir)
+        print(f"\nCodebook:  {cb_path}")
+
 
 # ------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------
 
+def _write_codebook(topic: str, config_dir: Path, output_dir: Path) -> Path:
+    """Write outputs/codebooks/{topic}_codebook.csv and return its path."""
+    yaml_path = config_dir / "topics" / f"{topic}.yaml"
+    with yaml_path.open() as fh:
+        config = yaml.safe_load(fh)
+
+    topic_name = config.get("topic_name", topic)
+    dataset    = config.get("dataset", "acs/acs5")
+    year       = config.get("year", "")
+    groups     = config.get("variable_groups", {})
+
+    variables, var_to_group, var_to_label = load_topic(topic, config_dir)
+
+    var_to_group_key: dict[str, str] = {}
+    for group_key, group in groups.items():
+        for entry in group.get("variables", []):
+            code = entry.get("code", entry) if isinstance(entry, dict) else entry
+            var_to_group_key[str(code)] = group_key
+
+    rows = [
+        {
+            "topic":         topic_name,
+            "dataset":       dataset,
+            "year":          year,
+            "group_key":     var_to_group_key.get(code, ""),
+            "sub_theme":     var_to_group.get(code, ""),
+            "variable_code": code,
+            "label":         var_to_label.get(code, ""),
+        }
+        for code in variables
+    ]
+
+    out_dir = output_dir / "codebooks"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{topic}_codebook.csv"
+
+    with out_path.open("w", newline="") as fh:
+        writer = csv.DictWriter(
+            fh,
+            fieldnames=["topic", "dataset", "year", "group_key", "sub_theme", "variable_code", "label"],
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+    return out_path
+
+
 def _get_dataset(config_dir: Path, topic: str) -> str:
-    import yaml
     path = config_dir / "topics" / f"{topic}.yaml"
     with path.open() as fh:
         return yaml.safe_load(fh).get("dataset", "acs/acs5")

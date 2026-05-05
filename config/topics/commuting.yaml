@@ -1,0 +1,103 @@
+topic_name: commuting
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  means_of_transportation:
+    label: "Means of Transportation to Work (Workers 16+)"
+    variables:
+      - code: B08301_001E
+        label: "Total workers 16 years and over"
+      - code: B08301_002E
+        label: "Car, truck, or van: Total"
+      - code: B08301_003E
+        label: "Car, truck, or van: Drove alone"
+      - code: B08301_004E
+        label: "Car, truck, or van: Carpooled"
+      - code: B08301_005E
+        label: "Carpooled: In 2-person carpool"
+      - code: B08301_006E
+        label: "Carpooled: In 3-person carpool"
+      - code: B08301_007E
+        label: "Carpooled: In 4-person carpool"
+      - code: B08301_008E
+        label: "Carpooled: In 5- or 6-person carpool"
+      - code: B08301_009E
+        label: "Carpooled: In 7-or-more-person carpool"
+      - code: B08301_010E
+        label: "Public transportation (excluding taxicab): Total"
+      - code: B08301_011E
+        label: "Public transportation: Bus"
+      - code: B08301_012E
+        label: "Public transportation: Subway or elevated rail"
+      - code: B08301_013E
+        label: "Public transportation: Long-distance train or commuter rail"
+      - code: B08301_014E
+        label: "Public transportation: Light rail, streetcar, or trolley"
+      - code: B08301_015E
+        label: "Public transportation: Ferryboat"
+      - code: B08301_016E
+        label: "Taxicab"
+      - code: B08301_017E
+        label: "Motorcycle"
+      - code: B08301_018E
+        label: "Bicycle"
+      - code: B08301_019E
+        label: "Walked"
+      - code: B08301_020E
+        label: "Other means"
+      - code: B08301_021E
+        label: "Worked from home"
+
+  travel_time:
+    label: "Travel Time to Work (Workers 16+ who did not work from home)"
+    variables:
+      - code: B08303_001E
+        label: "Total workers 16+ (excluding work-from-home)"
+      - code: B08303_002E
+        label: "Less than 5 minutes"
+      - code: B08303_003E
+        label: "5 to 9 minutes"
+      - code: B08303_004E
+        label: "10 to 14 minutes"
+      - code: B08303_005E
+        label: "15 to 19 minutes"
+      - code: B08303_006E
+        label: "20 to 24 minutes"
+      - code: B08303_007E
+        label: "25 to 29 minutes"
+      - code: B08303_008E
+        label: "30 to 34 minutes"
+      - code: B08303_009E
+        label: "35 to 39 minutes"
+      - code: B08303_010E
+        label: "40 to 44 minutes"
+      - code: B08303_011E
+        label: "45 to 59 minutes"
+      - code: B08303_012E
+        label: "60 to 89 minutes"
+      - code: B08303_013E
+        label: "90 or more minutes"
+
+  mean_travel_time:
+    label: "Mean Travel Time to Work"
+    variables:
+      - code: B08013_001E
+        label: "Mean travel time to work — workers 16+ who did not work from home (minutes)"
+
+  vehicles_available:
+    label: "Vehicles Available (Occupied Housing Units)"
+    variables:
+      - code: B08201_001E
+        label: "Total occupied housing units"
+      - code: B08201_002E
+        label: "No vehicle available"
+      - code: B08201_003E
+        label: "1 vehicle available"
+      - code: B08201_004E
+        label: "2 vehicles available"
+      - code: B08201_005E
+        label: "3 vehicles available"
+      - code: B08201_006E
+        label: "4 or more vehicles available"

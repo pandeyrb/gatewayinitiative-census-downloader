@@ -3,6 +3,9 @@
 Returns for/in clause strings and post-fetch city filters.
 The Census API uses "+" as the hierarchy separator in the `in` parameter and
 requires "block%20group" (URL-encoded space) in the `for` parameter.
+
+Tract filtering uses per-city tract_codes lists stored in config/cities.yaml.
+Cities without tract_codes configured return all county tracts with a warning.
 """
 
 import pandas as pd
@@ -16,16 +19,6 @@ GEO_KEY_COLS: dict[str, list[str]] = {
     "block_group": ["state", "county", "tract", "block group"],
     "block":       ["state", "county", "tract", "block"],
 }
-
-# Lawrence, MA census tract codes as returned by the Census API "tract" column (6-digit string).
-# Essex County (009) tracts are in the 2501–2518 range (API codes 250100–251800).
-# Verified by reverse-geocoding each tract centroid via Census Geocoder (2022 vintage).
-# All 18 tract centroids resolve to "Lawrence city" — no adjacent-city overlap detected.
-LAWRENCE_TRACT_CODES: frozenset[str] = frozenset({
-    "250100", "250200", "250300", "250400", "250500", "250600",
-    "250700", "250800", "250900", "251000", "251100", "251200",
-    "251300", "251400", "251500", "251600", "251700", "251800",
-})
 
 
 def get_for_param(geo_level: str, city_config: dict) -> str:
@@ -62,12 +55,20 @@ def get_geo_key_cols(geo_level: str) -> list[str]:
     return GEO_KEY_COLS[geo_level]
 
 
-def filter_to_city(df: pd.DataFrame, geo_level: str) -> pd.DataFrame:
-    """Post-fetch filter: drop rows outside Lawrence city limits.
+def filter_to_city(
+    df: pd.DataFrame,
+    geo_level: str,
+    city_config: dict | None = None,
+) -> pd.DataFrame:
+    """Post-fetch filter: keep only rows inside the requested city.
 
     Place-level queries already scope to a single place; no filtering needed.
-    Tract/block-group/block queries return all rows in the county — we keep only
-    rows whose tract code appears in the Lawrence crosswalk.
+    Tract/block-group queries return the entire county — we keep only rows whose
+    tract code appears in city_config["tract_codes"].
+
+    If city_config is missing or tract_codes is empty, all county rows are
+    returned with a warning. Populate tract_codes in config/cities.yaml to
+    enable sub-city filtering for a given city.
     """
     if geo_level == "place":
         return df
@@ -75,10 +76,22 @@ def filter_to_city(df: pd.DataFrame, geo_level: str) -> pd.DataFrame:
     if "tract" not in df.columns:
         return df
 
-    filtered = df[df["tract"].isin(LAWRENCE_TRACT_CODES)].copy()
+    tract_codes = (city_config or {}).get("tract_codes") or []
+    if not tract_codes:
+        city_name = (city_config or {}).get("name", "this city")
+        print(
+            f"  [filter] WARNING: no tract_codes configured for {city_name}. "
+            "Returning all county tracts — add tract_codes to config/cities.yaml "
+            "to filter to city boundaries."
+        )
+        return df
+
+    tract_set = frozenset(str(c) for c in tract_codes)
+    filtered = df[df["tract"].isin(tract_set)].copy()
     dropped = len(df) - len(filtered)
     if dropped:
-        print(f"  [filter] Removed {dropped} non-Lawrence rows (kept {len(filtered)}).")
+        city_name = (city_config or {}).get("name", "city")
+        print(f"  [filter] Removed {dropped} non-{city_name} rows (kept {len(filtered)}).")
     return filtered
 
 

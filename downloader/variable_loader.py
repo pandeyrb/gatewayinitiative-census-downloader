@@ -17,8 +17,8 @@ from pathlib import Path
 
 import yaml
 
-# Census variable code pattern: one uppercase letter, digits, underscore, digits, E or M
-_VAR_RE = re.compile(r"^[A-Z][0-9]+_[0-9]+[EM]$")
+# Census variable code pattern: letter prefix, digits, optional race-variant letter, underscore, digits, E or M
+_VAR_RE = re.compile(r"^[A-Z][0-9]+[A-Z]?_[0-9]+[EM]$")
 # Special Census API pseudo-variables that don't follow the standard pattern
 _SPECIAL_VARS = {"NAME", "GEO_ID", "GEOID"}
 

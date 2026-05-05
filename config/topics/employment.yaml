@@ -1,0 +1,279 @@
+topic_name: employment
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  employment_status:
+    label: "Employment Status (Population 16+)"
+    variables:
+      - code: B23025_001E
+        label: "Total population 16 years and over"
+      - code: B23025_002E
+        label: "In labor force"
+      - code: B23025_003E
+        label: "In labor force: Civilian labor force"
+      - code: B23025_004E
+        label: "In labor force: Civilian — employed"
+      - code: B23025_005E
+        label: "In labor force: Civilian — unemployed"
+      - code: B23025_006E
+        label: "In labor force: Armed Forces"
+      - code: B23025_007E
+        label: "Not in labor force"
+
+  employment_by_sex_age:
+    label: "Employment Status by Sex and Age (Population 16+)"
+    variables:
+      - code: B23001_001E
+        label: "Total population 16 years and over"
+      - code: B23001_002E
+        label: "Male"
+      - code: B23001_003E
+        label: "Male: 16 to 19 years"
+      - code: B23001_006E
+        label: "Male: 16 to 19 — in labor force"
+      - code: B23001_007E
+        label: "Male: 16 to 19 — civilian labor force employed"
+      - code: B23001_008E
+        label: "Male: 16 to 19 — civilian labor force unemployed"
+      - code: B23001_009E
+        label: "Male: 20 and 21 years"
+      - code: B23001_012E
+        label: "Male: 20 to 21 — civilian labor force employed"
+      - code: B23001_013E
+        label: "Male: 20 to 21 — civilian labor force unemployed"
+      - code: B23001_014E
+        label: "Male: 22 to 24 years"
+      - code: B23001_017E
+        label: "Male: 22 to 24 — civilian labor force employed"
+      - code: B23001_018E
+        label: "Male: 22 to 24 — civilian labor force unemployed"
+      - code: B23001_019E
+        label: "Male: 25 to 29 years"
+      - code: B23001_022E
+        label: "Male: 25 to 29 — civilian labor force employed"
+      - code: B23001_023E
+        label: "Male: 25 to 29 — civilian labor force unemployed"
+      - code: B23001_024E
+        label: "Male: 30 to 34 years"
+      - code: B23001_027E
+        label: "Male: 30 to 34 — civilian labor force employed"
+      - code: B23001_028E
+        label: "Male: 30 to 34 — civilian labor force unemployed"
+      - code: B23001_029E
+        label: "Male: 35 to 44 years"
+      - code: B23001_032E
+        label: "Male: 35 to 44 — civilian labor force employed"
+      - code: B23001_033E
+        label: "Male: 35 to 44 — civilian labor force unemployed"
+      - code: B23001_034E
+        label: "Male: 45 to 54 years"
+      - code: B23001_037E
+        label: "Male: 45 to 54 — civilian labor force employed"
+      - code: B23001_038E
+        label: "Male: 45 to 54 — civilian labor force unemployed"
+      - code: B23001_039E
+        label: "Male: 55 to 59 years"
+      - code: B23001_042E
+        label: "Male: 55 to 59 — civilian labor force employed"
+      - code: B23001_043E
+        label: "Male: 55 to 59 — civilian labor force unemployed"
+      - code: B23001_044E
+        label: "Male: 60 and 61 years"
+      - code: B23001_047E
+        label: "Male: 60 to 61 — civilian labor force employed"
+      - code: B23001_048E
+        label: "Male: 60 to 61 — civilian labor force unemployed"
+      - code: B23001_049E
+        label: "Male: 62 to 64 years"
+      - code: B23001_052E
+        label: "Male: 62 to 64 — civilian labor force employed"
+      - code: B23001_053E
+        label: "Male: 62 to 64 — civilian labor force unemployed"
+      - code: B23001_054E
+        label: "Male: 65 to 69 years"
+      - code: B23001_057E
+        label: "Male: 65 to 69 — civilian labor force employed"
+      - code: B23001_058E
+        label: "Male: 65 to 69 — civilian labor force unemployed"
+      - code: B23001_059E
+        label: "Male: 70 to 74 years"
+      - code: B23001_062E
+        label: "Male: 70 to 74 — civilian labor force employed"
+      - code: B23001_064E
+        label: "Male: 75 years and over"
+      - code: B23001_067E
+        label: "Male: 75+ — civilian labor force employed"
+      - code: B23001_069E
+        label: "Female"
+      - code: B23001_070E
+        label: "Female: 16 to 19 years"
+      - code: B23001_073E
+        label: "Female: 16 to 19 — civilian labor force employed"
+      - code: B23001_074E
+        label: "Female: 16 to 19 — civilian labor force unemployed"
+      - code: B23001_075E
+        label: "Female: 20 and 21 years"
+      - code: B23001_078E
+        label: "Female: 20 to 21 — civilian labor force employed"
+      - code: B23001_079E
+        label: "Female: 20 to 21 — civilian labor force unemployed"
+      - code: B23001_080E
+        label: "Female: 22 to 24 years"
+      - code: B23001_083E
+        label: "Female: 22 to 24 — civilian labor force employed"
+      - code: B23001_084E
+        label: "Female: 22 to 24 — civilian labor force unemployed"
+      - code: B23001_085E
+        label: "Female: 25 to 29 years"
+      - code: B23001_088E
+        label: "Female: 25 to 29 — civilian labor force employed"
+      - code: B23001_089E
+        label: "Female: 25 to 29 — civilian labor force unemployed"
+      - code: B23001_090E
+        label: "Female: 30 to 34 years"
+      - code: B23001_093E
+        label: "Female: 30 to 34 — civilian labor force employed"
+      - code: B23001_094E
+        label: "Female: 30 to 34 — civilian labor force unemployed"
+      - code: B23001_095E
+        label: "Female: 35 to 44 years"
+      - code: B23001_098E
+        label: "Female: 35 to 44 — civilian labor force employed"
+      - code: B23001_099E
+        label: "Female: 35 to 44 — civilian labor force unemployed"
+      - code: B23001_100E
+        label: "Female: 45 to 54 years"
+      - code: B23001_103E
+        label: "Female: 45 to 54 — civilian labor force employed"
+      - code: B23001_104E
+        label: "Female: 45 to 54 — civilian labor force unemployed"
+      - code: B23001_105E
+        label: "Female: 55 to 59 years"
+      - code: B23001_108E
+        label: "Female: 55 to 59 — civilian labor force employed"
+      - code: B23001_109E
+        label: "Female: 55 to 59 — civilian labor force unemployed"
+      - code: B23001_110E
+        label: "Female: 60 and 61 years"
+      - code: B23001_113E
+        label: "Female: 60 to 61 — civilian labor force employed"
+      - code: B23001_114E
+        label: "Female: 60 to 61 — civilian labor force unemployed"
+      - code: B23001_115E
+        label: "Female: 62 to 64 years"
+      - code: B23001_118E
+        label: "Female: 62 to 64 — civilian labor force employed"
+      - code: B23001_119E
+        label: "Female: 62 to 64 — civilian labor force unemployed"
+      - code: B23001_120E
+        label: "Female: 65 to 69 years"
+      - code: B23001_123E
+        label: "Female: 65 to 69 — civilian labor force employed"
+      - code: B23001_124E
+        label: "Female: 65 to 69 — civilian labor force unemployed"
+      - code: B23001_125E
+        label: "Female: 70 to 74 years"
+      - code: B23001_128E
+        label: "Female: 70 to 74 — civilian labor force employed"
+      - code: B23001_130E
+        label: "Female: 75 years and over"
+      - code: B23001_133E
+        label: "Female: 75+ — civilian labor force employed"
+
+  commute_mode:
+    label: "Means of Transportation to Work"
+    variables:
+      - code: B08301_001E
+        label: "Total workers 16 years and over"
+      - code: B08301_002E
+        label: "Car, truck, or van"
+      - code: B08301_003E
+        label: "Car, truck, or van — drove alone"
+      - code: B08301_004E
+        label: "Car, truck, or van — carpooled"
+      - code: B08301_010E
+        label: "Public transportation (excluding taxicab)"
+      - code: B08301_011E
+        label: "Bus"
+      - code: B08301_012E
+        label: "Subway or elevated rail"
+      - code: B08301_013E
+        label: "Long-distance train or commuter rail"
+      - code: B08301_014E
+        label: "Light rail, streetcar, or trolley"
+      - code: B08301_015E
+        label: "Ferryboat"
+      - code: B08301_016E
+        label: "Taxicab, motorcycle, bicycle, or other"
+      - code: B08301_017E
+        label: "Motorcycle"
+      - code: B08301_018E
+        label: "Bicycle"
+      - code: B08301_019E
+        label: "Walked"
+      - code: B08301_020E
+        label: "Other means"
+      - code: B08301_021E
+        label: "Worked from home"
+
+  travel_time:
+    label: "Travel Time to Work"
+    variables:
+      - code: B08303_001E
+        label: "Total workers 16+ who did not work from home"
+      - code: B08303_002E
+        label: "Less than 5 minutes"
+      - code: B08303_003E
+        label: "5 to 9 minutes"
+      - code: B08303_004E
+        label: "10 to 14 minutes"
+      - code: B08303_005E
+        label: "15 to 19 minutes"
+      - code: B08303_006E
+        label: "20 to 24 minutes"
+      - code: B08303_007E
+        label: "25 to 29 minutes"
+      - code: B08303_008E
+        label: "30 to 34 minutes"
+      - code: B08303_009E
+        label: "35 to 39 minutes"
+      - code: B08303_010E
+        label: "40 to 44 minutes"
+      - code: B08303_011E
+        label: "45 to 59 minutes"
+      - code: B08303_012E
+        label: "60 to 89 minutes"
+      - code: B08303_013E
+        label: "90 or more minutes"
+
+  earnings:
+    label: "Median Earnings by Sex (Full-Time Year-Round Workers 16+)"
+    variables:
+      - code: B20017_001E
+        label: "Total full-time year-round workers 16 years and over"
+      - code: B20017_002E
+        label: "Male full-time year-round workers"
+      - code: B20017_003E
+        label: "Male: Median earnings (dollars)"
+      - code: B20017_004E
+        label: "Female full-time year-round workers"
+      - code: B20017_005E
+        label: "Female: Median earnings (dollars)"
+
+  earnings_by_education:
+    label: "Median Earnings by Educational Attainment"
+    variables:
+      - code: B20004_001E
+        label: "Total population 25 years and over with earnings"
+      - code: B20004_002E
+        label: "Less than high school graduate"
+      - code: B20004_003E
+        label: "High school graduate (includes equivalency)"
+      - code: B20004_004E
+        label: "Some college or associate's degree"
+      - code: B20004_005E
+        label: "Bachelor's degree"
+      - code: B20004_006E
+        label: "Graduate or professional degree"

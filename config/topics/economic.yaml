@@ -1,0 +1,75 @@
+topic_name: economic
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  employment_status:
+    label: "Employment Status (Population 16+)"
+    variables:
+      - code: B23025_001E
+        label: "Total population 16 years and over"
+      - code: B23025_002E
+        label: "In labor force"
+      - code: B23025_003E
+        label: "In labor force: Civilian labor force"
+      - code: B23025_004E
+        label: "In labor force: Civilian: Employed"
+      - code: B23025_005E
+        label: "In labor force: Civilian: Unemployed"
+      - code: B23025_006E
+        label: "In labor force: Armed Forces"
+      - code: B23025_007E
+        label: "Not in labor force"
+
+  occupation:
+    label: "Occupation — Civilian Employed Population 16+ (Sex × Major Group)"
+    variables:
+      - code: C24010_001E
+        label: "Total civilian employed 16+"
+      - code: C24010_002E
+        label: "Male: Total"
+      - code: C24010_003E
+        label: "Male: Management, business, science, and arts"
+      - code: C24010_007E
+        label: "Male: Service"
+      - code: C24010_008E
+        label: "Male: Sales and office"
+      - code: C24010_009E
+        label: "Male: Natural resources, construction, and maintenance"
+      - code: C24010_010E
+        label: "Male: Production, transportation, and material moving"
+      - code: C24010_011E
+        label: "Female: Total"
+      - code: C24010_012E
+        label: "Female: Management, business, science, and arts"
+      - code: C24010_016E
+        label: "Female: Service"
+      - code: C24010_017E
+        label: "Female: Sales and office"
+      - code: C24010_018E
+        label: "Female: Natural resources, construction, and maintenance"
+      - code: C24010_019E
+        label: "Female: Production, transportation, and material moving"
+
+  earnings_by_sex:
+    label: "Median Earnings by Sex (Full-Time Year-Round Workers)"
+    variables:
+      - code: B20002_001E
+        label: "Median earnings — all workers (full-time, year-round)"
+      - code: B20002_002E
+        label: "Median earnings — male (full-time, year-round)"
+      - code: B20002_003E
+        label: "Median earnings — female (full-time, year-round)"
+
+  income_inequality:
+    label: "Income Inequality"
+    variables:
+      - code: B19083_001E
+        label: "Gini index of income inequality (0 = perfect equality, 1 = maximum inequality)"
+
+  mean_travel_time:
+    label: "Mean Travel Time to Work"
+    variables:
+      - code: B08013_001E
+        label: "Mean travel time to work — workers 16+ who did not work from home (minutes)"

@@ -1,0 +1,401 @@
+topic_name: housing
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  units_occupancy:
+    label: "Housing Units & Occupancy"
+    variables:
+      - code: B25001_001E
+        label: "Total housing units"
+      - code: B25002_001E
+        label: "Occupancy status: Total"
+      - code: B25002_002E
+        label: "Occupied"
+      - code: B25002_003E
+        label: "Vacant"
+
+  tenure:
+    label: "Housing Tenure"
+    variables:
+      - code: B25003_001E
+        label: "Total occupied housing units"
+      - code: B25003_002E
+        label: "Owner occupied"
+      - code: B25003_003E
+        label: "Renter occupied"
+      - code: B25008_001E
+        label: "Total population in occupied housing units"
+      - code: B25008_002E
+        label: "Population in owner-occupied units"
+      - code: B25008_003E
+        label: "Population in renter-occupied units"
+      - code: B25010_001E
+        label: "Average household size (all occupied units)"
+      - code: B25010_002E
+        label: "Average household size (owner-occupied)"
+      - code: B25010_003E
+        label: "Average household size (renter-occupied)"
+
+  overcrowding:
+    label: "Overcrowding (Occupants per Room by Tenure)"
+    variables:
+      - code: B25014_001E
+        label: "Total occupied housing units"
+      - code: B25014_002E
+        label: "Owner occupied"
+      - code: B25014_003E
+        label: "Owner: 0.50 or less occupants per room"
+      - code: B25014_004E
+        label: "Owner: 0.51 to 1.00 occupants per room"
+      - code: B25014_005E
+        label: "Owner: 1.01 to 1.50 occupants per room"
+      - code: B25014_006E
+        label: "Owner: 1.51 to 2.00 occupants per room"
+      - code: B25014_007E
+        label: "Owner: 2.01 or more occupants per room"
+      - code: B25014_008E
+        label: "Renter occupied"
+      - code: B25014_009E
+        label: "Renter: 0.50 or less occupants per room"
+      - code: B25014_010E
+        label: "Renter: 0.51 to 1.00 occupants per room"
+      - code: B25014_011E
+        label: "Renter: 1.01 to 1.50 occupants per room"
+      - code: B25014_012E
+        label: "Renter: 1.51 to 2.00 occupants per room"
+      - code: B25014_013E
+        label: "Renter: 2.01 or more occupants per room"
+
+  units_in_structure:
+    label: "Units in Structure"
+    variables:
+      - code: B25024_001E
+        label: "Total housing units"
+      - code: B25024_002E
+        label: "1 unit, detached"
+      - code: B25024_003E
+        label: "1 unit, attached"
+      - code: B25024_004E
+        label: "2 units"
+      - code: B25024_005E
+        label: "3 or 4 units"
+      - code: B25024_006E
+        label: "5 to 9 units"
+      - code: B25024_007E
+        label: "10 to 19 units"
+      - code: B25024_008E
+        label: "20 to 49 units"
+      - code: B25024_009E
+        label: "50 or more units"
+      - code: B25024_010E
+        label: "Mobile home"
+      - code: B25024_011E
+        label: "Boat, RV, van, etc."
+
+  age_of_housing:
+    label: "Year Structure Built"
+    variables:
+      - code: B25034_001E
+        label: "Total housing units"
+      - code: B25034_002E
+        label: "Built 2014 or later"
+      - code: B25034_003E
+        label: "Built 2010 to 2013"
+      - code: B25034_004E
+        label: "Built 2000 to 2009"
+      - code: B25034_005E
+        label: "Built 1990 to 1999"
+      - code: B25034_006E
+        label: "Built 1980 to 1989"
+      - code: B25034_007E
+        label: "Built 1970 to 1979"
+      - code: B25034_008E
+        label: "Built 1960 to 1969"
+      - code: B25034_009E
+        label: "Built 1950 to 1959"
+      - code: B25034_010E
+        label: "Built 1940 to 1949"
+      - code: B25034_011E
+        label: "Built 1939 or earlier"
+      - code: B25035_001E
+        label: "Median year structure built"
+
+  bedrooms:
+    label: "Bedrooms"
+    variables:
+      - code: B25041_001E
+        label: "Total housing units"
+      - code: B25041_002E
+        label: "No bedroom (studio)"
+      - code: B25041_003E
+        label: "1 bedroom"
+      - code: B25041_004E
+        label: "2 bedrooms"
+      - code: B25041_005E
+        label: "3 bedrooms"
+      - code: B25041_006E
+        label: "4 bedrooms"
+      - code: B25041_007E
+        label: "5 or more bedrooms"
+
+  vehicles:
+    label: "Vehicles Available by Tenure"
+    variables:
+      - code: B25044_001E
+        label: "Total occupied housing units"
+      - code: B25044_002E
+        label: "Owner occupied"
+      - code: B25044_003E
+        label: "Owner: No vehicles available"
+      - code: B25044_004E
+        label: "Owner: 1 vehicle available"
+      - code: B25044_005E
+        label: "Owner: 2 vehicles available"
+      - code: B25044_006E
+        label: "Owner: 3 or more vehicles available"
+      - code: B25044_007E
+        label: "Renter occupied"
+      - code: B25044_008E
+        label: "Renter: No vehicles available"
+      - code: B25044_009E
+        label: "Renter: 1 vehicle available"
+      - code: B25044_010E
+        label: "Renter: 2 vehicles available"
+      - code: B25044_011E
+        label: "Renter: 3 or more vehicles available"
+
+  plumbing_kitchen:
+    label: "Plumbing & Kitchen Facilities"
+    variables:
+      - code: B25047_001E
+        label: "Total housing units (plumbing)"
+      - code: B25047_002E
+        label: "Complete plumbing facilities"
+      - code: B25047_003E
+        label: "Lacking complete plumbing facilities"
+      - code: B25052_001E
+        label: "Total housing units (kitchen)"
+      - code: B25052_002E
+        label: "Complete kitchen facilities"
+      - code: B25052_003E
+        label: "Lacking complete kitchen facilities"
+
+  heating_fuel:
+    label: "House Heating Fuel"
+    variables:
+      - code: B25040_001E
+        label: "Total occupied housing units"
+      - code: B25040_002E
+        label: "Utility gas"
+      - code: B25040_003E
+        label: "Bottled, tank, or LP gas"
+      - code: B25040_004E
+        label: "Electricity"
+      - code: B25040_005E
+        label: "Fuel oil, kerosene, etc."
+      - code: B25040_006E
+        label: "Coal or coke"
+      - code: B25040_007E
+        label: "Wood"
+      - code: B25040_008E
+        label: "Solar energy"
+      - code: B25040_009E
+        label: "Other fuel"
+      - code: B25040_010E
+        label: "No fuel used"
+
+  rent:
+    label: "Gross Rent"
+    variables:
+      - code: B25064_001E
+        label: "Median gross rent (dollars)"
+      - code: B25063_001E
+        label: "Gross rent: Total renter-occupied units"
+      - code: B25063_002E
+        label: "Gross rent: With cash rent"
+      - code: B25063_003E
+        label: "Less than $100"
+      - code: B25063_004E
+        label: "$100 to $149"
+      - code: B25063_005E
+        label: "$150 to $199"
+      - code: B25063_006E
+        label: "$200 to $249"
+      - code: B25063_007E
+        label: "$250 to $299"
+      - code: B25063_008E
+        label: "$300 to $349"
+      - code: B25063_009E
+        label: "$350 to $399"
+      - code: B25063_010E
+        label: "$400 to $449"
+      - code: B25063_011E
+        label: "$450 to $499"
+      - code: B25063_012E
+        label: "$500 to $549"
+      - code: B25063_013E
+        label: "$550 to $599"
+      - code: B25063_014E
+        label: "$600 to $649"
+      - code: B25063_015E
+        label: "$650 to $699"
+      - code: B25063_016E
+        label: "$700 to $749"
+      - code: B25063_017E
+        label: "$750 to $799"
+      - code: B25063_018E
+        label: "$800 to $899"
+      - code: B25063_019E
+        label: "$900 to $999"
+      - code: B25063_020E
+        label: "$1,000 to $1,249"
+      - code: B25063_021E
+        label: "$1,250 to $1,499"
+      - code: B25063_022E
+        label: "$1,500 to $1,999"
+      - code: B25063_023E
+        label: "$2,000 to $2,499"
+      - code: B25063_024E
+        label: "$2,500 to $2,999"
+      - code: B25063_025E
+        label: "$3,000 to $3,499"
+      - code: B25063_026E
+        label: "No cash rent"
+
+  rent_burden:
+    label: "Rent Burden (Gross Rent as % of Household Income)"
+    variables:
+      - code: B25070_001E
+        label: "Total renter-occupied units"
+      - code: B25070_002E
+        label: "Less than 10.0 percent"
+      - code: B25070_003E
+        label: "10.0 to 14.9 percent"
+      - code: B25070_004E
+        label: "15.0 to 19.9 percent"
+      - code: B25070_005E
+        label: "20.0 to 24.9 percent"
+      - code: B25070_006E
+        label: "25.0 to 29.9 percent"
+      - code: B25070_007E
+        label: "30.0 to 34.9 percent"
+      - code: B25070_008E
+        label: "35.0 to 39.9 percent"
+      - code: B25070_009E
+        label: "40.0 to 49.9 percent"
+      - code: B25070_010E
+        label: "50.0 percent or more"
+      - code: B25070_011E
+        label: "Not computed"
+
+  home_value:
+    label: "Home Value (Owner-Occupied Units)"
+    variables:
+      - code: B25077_001E
+        label: "Median value of owner-occupied housing units (dollars)"
+      - code: B25075_001E
+        label: "Value: Total owner-occupied units"
+      - code: B25075_002E
+        label: "Less than $10,000"
+      - code: B25075_003E
+        label: "$10,000 to $14,999"
+      - code: B25075_004E
+        label: "$15,000 to $19,999"
+      - code: B25075_005E
+        label: "$20,000 to $24,999"
+      - code: B25075_006E
+        label: "$25,000 to $29,999"
+      - code: B25075_007E
+        label: "$30,000 to $34,999"
+      - code: B25075_008E
+        label: "$35,000 to $39,999"
+      - code: B25075_009E
+        label: "$40,000 to $49,999"
+      - code: B25075_010E
+        label: "$50,000 to $59,999"
+      - code: B25075_011E
+        label: "$60,000 to $69,999"
+      - code: B25075_012E
+        label: "$70,000 to $79,999"
+      - code: B25075_013E
+        label: "$80,000 to $89,999"
+      - code: B25075_014E
+        label: "$90,000 to $99,999"
+      - code: B25075_015E
+        label: "$100,000 to $124,999"
+      - code: B25075_016E
+        label: "$125,000 to $149,999"
+      - code: B25075_017E
+        label: "$150,000 to $174,999"
+      - code: B25075_018E
+        label: "$175,000 to $199,999"
+      - code: B25075_019E
+        label: "$200,000 to $249,999"
+      - code: B25075_020E
+        label: "$250,000 to $299,999"
+      - code: B25075_021E
+        label: "$300,000 to $399,999"
+      - code: B25075_022E
+        label: "$400,000 to $499,999"
+      - code: B25075_023E
+        label: "$500,000 to $749,999"
+      - code: B25075_024E
+        label: "$750,000 to $999,999"
+      - code: B25075_025E
+        label: "$1,000,000 to $1,499,999"
+      - code: B25075_026E
+        label: "$1,500,000 to $1,999,999"
+      - code: B25075_027E
+        label: "$2,000,000 or more"
+
+  owner_cost_burden:
+    label: "Owner Cost Burden (Monthly Owner Costs as % of Income)"
+    variables:
+      - code: B25091_001E
+        label: "Total owner-occupied units"
+      - code: B25091_002E
+        label: "With mortgage: Less than 10.0%"
+      - code: B25091_003E
+        label: "With mortgage: 10.0 to 14.9%"
+      - code: B25091_004E
+        label: "With mortgage: 15.0 to 19.9%"
+      - code: B25091_005E
+        label: "With mortgage: 20.0 to 24.9%"
+      - code: B25091_006E
+        label: "With mortgage: 25.0 to 29.9%"
+      - code: B25091_007E
+        label: "With mortgage: 30.0 to 34.9%"
+      - code: B25091_008E
+        label: "With mortgage: 35.0 to 39.9%"
+      - code: B25091_009E
+        label: "With mortgage: 40.0 to 49.9%"
+      - code: B25091_010E
+        label: "With mortgage: 50.0 percent or more"
+      - code: B25091_011E
+        label: "With mortgage: Not computed"
+      - code: B25091_012E
+        label: "Without mortgage: Less than 10.0%"
+      - code: B25091_013E
+        label: "Without mortgage: 10.0 to 14.9%"
+      - code: B25091_014E
+        label: "Without mortgage: 15.0 to 19.9%"
+      - code: B25091_015E
+        label: "Without mortgage: 20.0 to 24.9%"
+      - code: B25091_016E
+        label: "Without mortgage: 25.0 to 29.9%"
+      - code: B25091_017E
+        label: "Without mortgage: 30.0 to 34.9%"
+      - code: B25091_018E
+        label: "Without mortgage: 35.0 to 39.9%"
+      - code: B25091_019E
+        label: "Without mortgage: 40.0 to 49.9%"
+      - code: B25091_020E
+        label: "Without mortgage: 50.0 percent or more"
+      - code: B25091_021E
+        label: "Without mortgage: Not computed"
+      - code: B25091_022E
+        label: "Zero or negative income (with mortgage)"
+      - code: B25091_023E
+        label: "Zero or negative income (without mortgage)"

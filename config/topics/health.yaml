@@ -1,0 +1,139 @@
+topic_name: health
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  health_insurance:
+    label: "Health Insurance Coverage by Sex and Age (Civilian Noninstitutionalized)"
+    variables:
+      - code: B27001_001E
+        label: "Total civilian noninstitutionalized population"
+      - code: B27001_002E
+        label: "Male: Total"
+      - code: B27001_003E
+        label: "Male: Under 6 years — with health insurance"
+      - code: B27001_004E
+        label: "Male: Under 6 years — no health insurance"
+      - code: B27001_005E
+        label: "Male: 6 to 17 years — with health insurance"
+      - code: B27001_006E
+        label: "Male: 6 to 17 years — no health insurance"
+      - code: B27001_007E
+        label: "Male: 18 to 24 years — with health insurance"
+      - code: B27001_008E
+        label: "Male: 18 to 24 years — no health insurance"
+      - code: B27001_009E
+        label: "Male: 25 to 34 years — with health insurance"
+      - code: B27001_010E
+        label: "Male: 25 to 34 years — no health insurance"
+      - code: B27001_011E
+        label: "Male: 35 to 44 years — with health insurance"
+      - code: B27001_012E
+        label: "Male: 35 to 44 years — no health insurance"
+      - code: B27001_013E
+        label: "Male: 45 to 54 years — with health insurance"
+      - code: B27001_014E
+        label: "Male: 45 to 54 years — no health insurance"
+      - code: B27001_015E
+        label: "Male: 55 to 64 years — with health insurance"
+      - code: B27001_016E
+        label: "Male: 55 to 64 years — no health insurance"
+      - code: B27001_017E
+        label: "Male: 65 to 74 years — with health insurance"
+      - code: B27001_018E
+        label: "Male: 65 to 74 years — no health insurance"
+      - code: B27001_019E
+        label: "Male: 75 years and over — with health insurance"
+      - code: B27001_020E
+        label: "Male: 75 years and over — no health insurance"
+      - code: B27001_021E
+        label: "Female: Total"
+      - code: B27001_022E
+        label: "Female: Under 6 years — with health insurance"
+      - code: B27001_023E
+        label: "Female: Under 6 years — no health insurance"
+      - code: B27001_024E
+        label: "Female: 6 to 17 years — with health insurance"
+      - code: B27001_025E
+        label: "Female: 6 to 17 years — no health insurance"
+      - code: B27001_026E
+        label: "Female: 18 to 24 years — with health insurance"
+      - code: B27001_027E
+        label: "Female: 18 to 24 years — no health insurance"
+      - code: B27001_028E
+        label: "Female: 25 to 34 years — with health insurance"
+      - code: B27001_029E
+        label: "Female: 25 to 34 years — no health insurance"
+      - code: B27001_030E
+        label: "Female: 35 to 44 years — with health insurance"
+      - code: B27001_031E
+        label: "Female: 35 to 44 years — no health insurance"
+      - code: B27001_032E
+        label: "Female: 45 to 54 years — with health insurance"
+      - code: B27001_033E
+        label: "Female: 45 to 54 years — no health insurance"
+      - code: B27001_034E
+        label: "Female: 55 to 64 years — with health insurance"
+      - code: B27001_035E
+        label: "Female: 55 to 64 years — no health insurance"
+      - code: B27001_036E
+        label: "Female: 65 to 74 years — with health insurance"
+      - code: B27001_037E
+        label: "Female: 65 to 74 years — no health insurance"
+      - code: B27001_038E
+        label: "Female: 75 years and over — with health insurance"
+      - code: B27001_039E
+        label: "Female: 75 years and over — no health insurance"
+
+  disability:
+    label: "Disability Status by Sex and Age (Civilian Noninstitutionalized)"
+    variables:
+      - code: B18101_001E
+        label: "Total civilian noninstitutionalized population"
+      - code: B18101_002E
+        label: "Male"
+      - code: B18101_004E
+        label: "Male: 5 to 17 years — with a disability"
+      - code: B18101_007E
+        label: "Male: 18 to 34 years — with a disability"
+      - code: B18101_010E
+        label: "Male: 35 to 64 years — with a disability"
+      - code: B18101_013E
+        label: "Male: 65 to 74 years — with a disability"
+      - code: B18101_016E
+        label: "Male: 75 years and over — with a disability"
+      - code: B18101_019E
+        label: "Female"
+      - code: B18101_021E
+        label: "Female: 5 to 17 years — with a disability"
+      - code: B18101_024E
+        label: "Female: 18 to 34 years — with a disability"
+      - code: B18101_027E
+        label: "Female: 35 to 64 years — with a disability"
+      - code: B18101_030E
+        label: "Female: 65 to 74 years — with a disability"
+      - code: B18101_033E
+        label: "Female: 75 years and over — with a disability"
+
+  veteran_status:
+    label: "Veteran Status by Sex (Civilian Population 18+)"
+    variables:
+      - code: B21001_001E
+        label: "Total civilian population 18 years and over"
+      - code: B21001_002E
+        label: "Veteran"
+      - code: B21001_003E
+        label: "Nonveteran"
+      - code: B21001_004E
+        label: "Male: Total"
+      - code: B21001_005E
+        label: "Male: Veteran"
+      - code: B21001_006E
+        label: "Male: Nonveteran"
+      - code: B21001_007E
+        label: "Female: Total"
+      - code: B21001_008E
+        label: "Female: Veteran"
+      - code: B21001_009E
+        label: "Female: Nonveteran"

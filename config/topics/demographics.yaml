@@ -2,21 +2,19 @@ topic_name: demographics
 dataset: acs/acs5
 year: 2022
 
-# Each group maps to a sub-theme label used in the variable-to-group dictionary.
-# To add variables: append to an existing list or create a new group block.
-# Variable entries use {code, label} format so the codebook includes human-readable names.
-
 variable_groups:
 
   population_age:
     label: "Population & Age"
     variables:
-      # --- Summary totals ---
       - code: B01001_001E
         label: "Total population"
       - code: B01002_001E
         label: "Median age (both sexes)"
-      # --- Sex by age (B01001) ---
+      - code: B01002_002E
+        label: "Median age (male)"
+      - code: B01002_003E
+        label: "Median age (female)"
       - code: B01001_002E
         label: "Male: Total"
       - code: B01001_003E
@@ -138,8 +136,42 @@ variable_groups:
       - code: B02001_010E
         label: "Two races excluding some other race, and three or more races"
 
-  hispanic_latino:
-    label: "Hispanic/Latino Ethnicity"
+  hispanic_latino_by_race:
+    label: "Hispanic/Latino Origin by Race (available at all geo levels)"
+    variables:
+      - code: B03002_001E
+        label: "Total"
+      - code: B03002_002E
+        label: "Not Hispanic or Latino"
+      - code: B03002_003E
+        label: "Not Hispanic or Latino: White alone"
+      - code: B03002_004E
+        label: "Not Hispanic or Latino: Black or African American alone"
+      - code: B03002_005E
+        label: "Not Hispanic or Latino: American Indian and Alaska Native alone"
+      - code: B03002_006E
+        label: "Not Hispanic or Latino: Asian alone"
+      - code: B03002_007E
+        label: "Not Hispanic or Latino: Native Hawaiian and Other Pacific Islander alone"
+      - code: B03002_008E
+        label: "Not Hispanic or Latino: Some other race alone"
+      - code: B03002_009E
+        label: "Not Hispanic or Latino: Two or more races"
+      - code: B03002_012E
+        label: "Hispanic or Latino"
+      - code: B03002_013E
+        label: "Hispanic or Latino: White alone"
+      - code: B03002_014E
+        label: "Hispanic or Latino: Black or African American alone"
+      - code: B03002_016E
+        label: "Hispanic or Latino: Asian alone"
+      - code: B03002_018E
+        label: "Hispanic or Latino: Some other race alone"
+      - code: B03002_019E
+        label: "Hispanic or Latino: Two or more races"
+
+  hispanic_latino_origin:
+    label: "Hispanic/Latino Origin by Specific Group (suppressed at block group)"
     variables:
       - code: B03001_001E
         label: "Total"
@@ -204,15 +236,15 @@ variable_groups:
       - code: B03001_031E
         label: "All other Hispanic or Latino"
 
-  nativity:
-    label: "Nativity & Citizenship"
+  nativity_citizenship:
+    label: "Nativity & Citizenship (suppressed at block group)"
     variables:
       - code: B05001_001E
         label: "Total (citizenship universe)"
       - code: B05001_002E
-        label: "US citizen, born in US"
+        label: "US citizen, born in the United States"
       - code: B05001_003E
-        label: "US citizen, born in Puerto Rico or US territories"
+        label: "US citizen, born in Puerto Rico or US island areas"
       - code: B05001_004E
         label: "US citizen, born abroad of US parent(s)"
       - code: B05001_005E
@@ -221,7 +253,7 @@ variable_groups:
         label: "Not a US citizen"
 
   language:
-    label: "Language Spoken at Home"
+    label: "Language Spoken at Home (suppressed at block group)"
     variables:
       - code: B06007_001E
         label: "Total (language universe)"
@@ -242,154 +274,102 @@ variable_groups:
       - code: B06007_009E
         label: "Speak other languages"
 
-  income:
-    label: "Income"
+  linguistic_isolation:
+    label: "Household Linguistic Isolation"
     variables:
-      - code: B19013_001E
-        label: "Median household income"
-      - code: B19001_001E
-        label: "Household income: Total"
-      - code: B19001_002E
-        label: "Less than $10,000"
-      - code: B19001_003E
-        label: "$10,000 to $14,999"
-      - code: B19001_004E
-        label: "$15,000 to $19,999"
-      - code: B19001_005E
-        label: "$20,000 to $24,999"
-      - code: B19001_006E
-        label: "$25,000 to $29,999"
-      - code: B19001_007E
-        label: "$30,000 to $34,999"
-      - code: B19001_008E
-        label: "$35,000 to $39,999"
-      - code: B19001_009E
-        label: "$40,000 to $44,999"
-      - code: B19001_010E
-        label: "$45,000 to $49,999"
-      - code: B19001_011E
-        label: "$50,000 to $59,999"
-      - code: B19001_012E
-        label: "$60,000 to $74,999"
-      - code: B19001_013E
-        label: "$75,000 to $99,999"
-      - code: B19001_014E
-        label: "$100,000 to $124,999"
-      - code: B19001_015E
-        label: "$125,000 to $149,999"
-      - code: B19001_016E
-        label: "$150,000 to $199,999"
-      - code: B19001_017E
-        label: "$200,000 or more"
+      - code: B16002_001E
+        label: "Total households"
+      - code: B16002_002E
+        label: "English only"
+      - code: B16002_003E
+        label: "Spanish: linguistically isolated"
+      - code: B16002_004E
+        label: "Spanish: not linguistically isolated"
+      - code: B16002_005E
+        label: "Spanish: total"
+      - code: B16002_006E
+        label: "Other Indo-European: linguistically isolated"
+      - code: B16002_007E
+        label: "Other Indo-European: not linguistically isolated"
+      - code: B16002_008E
+        label: "Other Indo-European: total"
+      - code: B16002_009E
+        label: "Asian and Pacific Island: linguistically isolated"
+      - code: B16002_010E
+        label: "Asian and Pacific Island: not linguistically isolated"
+      - code: B16002_011E
+        label: "Asian and Pacific Island: total"
+      - code: B16002_012E
+        label: "Other: linguistically isolated"
+      - code: B16002_013E
+        label: "Other: not linguistically isolated"
+      - code: B16002_014E
+        label: "Other: total"
 
-  poverty:
-    label: "Poverty"
+  households:
+    label: "Household & Family Type"
     variables:
-      - code: B17001_001E
-        label: "Total (poverty status universe)"
-      - code: B17001_002E
-        label: "Below poverty level"
-      - code: B17001_003E
-        label: "Male: below poverty level"
-      - code: B17001_004E
-        label: "Female: below poverty level"
-      - code: B17020_001E
-        label: "Total (poverty by race — all races)"
-      - code: B17020_002E
-        label: "Below poverty level"
-      - code: B17020_003E
-        label: "At or above poverty level"
+      - code: B11001_001E
+        label: "Total households"
+      - code: B11001_002E
+        label: "Family households"
+      - code: B11001_003E
+        label: "Family: Married-couple family"
+      - code: B11001_005E
+        label: "Family: Other — male householder, no wife present"
+      - code: B11001_006E
+        label: "Family: Other — female householder, no husband present"
+      - code: B11001_007E
+        label: "Nonfamily households"
+      - code: B11001_008E
+        label: "Nonfamily: Householder living alone"
+      - code: B11001_009E
+        label: "Nonfamily: Householder not living alone"
 
-  housing_units:
-    label: "Housing Units"
+  families_with_children:
+    label: "Families with Children Under 18"
     variables:
-      - code: B25001_001E
-        label: "Total housing units"
-      - code: B25002_001E
-        label: "Occupancy status: Total"
-      - code: B25002_002E
-        label: "Occupied"
-      - code: B25002_003E
-        label: "Vacant"
-      - code: B25003_001E
-        label: "Tenure: Total"
-      - code: B25003_002E
-        label: "Owner occupied"
-      - code: B25003_003E
-        label: "Renter occupied"
+      - code: B11003_001E
+        label: "Total family households"
+      - code: B11003_002E
+        label: "Married-couple family"
+      - code: B11003_003E
+        label: "Married-couple: with children under 18 years"
+      - code: B11003_010E
+        label: "Other family: male householder, no wife"
+      - code: B11003_011E
+        label: "Other family: male householder — with children under 18"
+      - code: B11003_016E
+        label: "Other family: female householder, no husband"
+      - code: B11003_017E
+        label: "Other family: female householder — with children under 18"
 
-  housing_costs:
-    label: "Housing Costs"
+  disability:
+    label: "Disability Status (Civilian Noninstitutionalized Population)"
     variables:
-      - code: B25064_001E
-        label: "Median gross rent"
-      - code: B25077_001E
-        label: "Median value (owner-occupied units)"
-      - code: B25070_001E
-        label: "Gross rent as % of income: Total"
-      - code: B25070_002E
-        label: "Gross rent: Less than 10.0 percent"
-      - code: B25070_003E
-        label: "Gross rent: 10.0 to 14.9 percent"
-      - code: B25070_004E
-        label: "Gross rent: 15.0 to 19.9 percent"
-      - code: B25070_005E
-        label: "Gross rent: 20.0 to 24.9 percent"
-      - code: B25070_006E
-        label: "Gross rent: 25.0 to 29.9 percent"
-      - code: B25070_007E
-        label: "Gross rent: 30.0 to 34.9 percent"
-      - code: B25070_008E
-        label: "Gross rent: 35.0 to 39.9 percent"
-      - code: B25070_009E
-        label: "Gross rent: 40.0 to 49.9 percent"
-      - code: B25070_010E
-        label: "Gross rent: 50.0 percent or more"
-      - code: B25070_011E
-        label: "Gross rent: Not computed"
-      - code: B25091_001E
-        label: "Selected monthly owner costs as % of income: Total"
-      - code: B25091_002E
-        label: "With mortgage: Less than 10.0%"
-      - code: B25091_003E
-        label: "With mortgage: 10.0 to 14.9%"
-      - code: B25091_004E
-        label: "With mortgage: 15.0 to 19.9%"
-      - code: B25091_005E
-        label: "With mortgage: 20.0 to 24.9%"
-      - code: B25091_006E
-        label: "With mortgage: 25.0 to 29.9%"
-      - code: B25091_007E
-        label: "With mortgage: 30.0 to 34.9%"
-      - code: B25091_008E
-        label: "With mortgage: 35.0 to 39.9%"
-      - code: B25091_009E
-        label: "With mortgage: 40.0 to 49.9%"
-      - code: B25091_010E
-        label: "With mortgage: 50.0 percent or more"
-      - code: B25091_011E
-        label: "With mortgage: Not computed"
-      - code: B25091_012E
-        label: "Without mortgage: Less than 10.0%"
-      - code: B25091_013E
-        label: "Without mortgage: 10.0 to 14.9%"
-      - code: B25091_014E
-        label: "Without mortgage: 15.0 to 19.9%"
-      - code: B25091_015E
-        label: "Without mortgage: 20.0 to 24.9%"
-      - code: B25091_016E
-        label: "Without mortgage: 25.0 to 29.9%"
-      - code: B25091_017E
-        label: "Without mortgage: 30.0 to 34.9%"
-      - code: B25091_018E
-        label: "Without mortgage: 35.0 to 39.9%"
-      - code: B25091_019E
-        label: "Without mortgage: 40.0 to 49.9%"
-      - code: B25091_020E
-        label: "Without mortgage: 50.0 percent or more"
-      - code: B25091_021E
-        label: "Without mortgage: Not computed"
-      - code: B25091_022E
-        label: "Zero or negative income (with mortgage)"
-      - code: B25091_023E
-        label: "Zero or negative income (without mortgage)"
+      - code: B18101_001E
+        label: "Total civilian noninstitutionalized population"
+      - code: B18101_002E
+        label: "Male"
+      - code: B18101_004E
+        label: "Male: 5 to 17 years — with a disability"
+      - code: B18101_007E
+        label: "Male: 18 to 34 years — with a disability"
+      - code: B18101_010E
+        label: "Male: 35 to 64 years — with a disability"
+      - code: B18101_013E
+        label: "Male: 65 to 74 years — with a disability"
+      - code: B18101_016E
+        label: "Male: 75 years and over — with a disability"
+      - code: B18101_019E
+        label: "Female"
+      - code: B18101_021E
+        label: "Female: 5 to 17 years — with a disability"
+      - code: B18101_024E
+        label: "Female: 18 to 34 years — with a disability"
+      - code: B18101_027E
+        label: "Female: 35 to 64 years — with a disability"
+      - code: B18101_030E
+        label: "Female: 65 to 74 years — with a disability"
+      - code: B18101_033E
+        label: "Female: 75 years and over — with a disability"

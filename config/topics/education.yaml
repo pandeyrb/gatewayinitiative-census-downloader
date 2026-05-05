@@ -1,0 +1,289 @@
+topic_name: education
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  attainment:
+    label: "Educational Attainment (Population 25+)"
+    variables:
+      - code: B15003_001E
+        label: "Total population 25 years and over"
+      - code: B15003_002E
+        label: "No schooling completed"
+      - code: B15003_003E
+        label: "Nursery school"
+      - code: B15003_004E
+        label: "Kindergarten"
+      - code: B15003_005E
+        label: "1st grade"
+      - code: B15003_006E
+        label: "2nd grade"
+      - code: B15003_007E
+        label: "3rd grade"
+      - code: B15003_008E
+        label: "4th grade"
+      - code: B15003_009E
+        label: "5th grade"
+      - code: B15003_010E
+        label: "6th grade"
+      - code: B15003_011E
+        label: "7th grade"
+      - code: B15003_012E
+        label: "8th grade"
+      - code: B15003_013E
+        label: "9th grade"
+      - code: B15003_014E
+        label: "10th grade"
+      - code: B15003_015E
+        label: "11th grade"
+      - code: B15003_016E
+        label: "12th grade, no diploma"
+      - code: B15003_017E
+        label: "Regular high school diploma"
+      - code: B15003_018E
+        label: "GED or alternative credential"
+      - code: B15003_019E
+        label: "Some college, less than 1 year"
+      - code: B15003_020E
+        label: "Some college, 1 or more years, no degree"
+      - code: B15003_021E
+        label: "Associate's degree"
+      - code: B15003_022E
+        label: "Bachelor's degree"
+      - code: B15003_023E
+        label: "Master's degree"
+      - code: B15003_024E
+        label: "Professional school degree"
+      - code: B15003_025E
+        label: "Doctorate degree"
+
+  attainment_by_sex:
+    label: "Educational Attainment by Sex (Population 25+)"
+    variables:
+      - code: B15002_001E
+        label: "Total population 25 years and over"
+      - code: B15002_002E
+        label: "Male"
+      - code: B15002_003E
+        label: "Male: No schooling completed"
+      - code: B15002_004E
+        label: "Male: Nursery to 4th grade"
+      - code: B15002_005E
+        label: "Male: 5th and 6th grade"
+      - code: B15002_006E
+        label: "Male: 7th and 8th grade"
+      - code: B15002_007E
+        label: "Male: 9th grade"
+      - code: B15002_008E
+        label: "Male: 10th grade"
+      - code: B15002_009E
+        label: "Male: 11th grade"
+      - code: B15002_010E
+        label: "Male: 12th grade, no diploma"
+      - code: B15002_011E
+        label: "Male: High school graduate (includes equivalency)"
+      - code: B15002_012E
+        label: "Male: Some college, less than 1 year"
+      - code: B15002_013E
+        label: "Male: Some college, 1 or more years, no degree"
+      - code: B15002_014E
+        label: "Male: Associate's degree"
+      - code: B15002_015E
+        label: "Male: Bachelor's degree"
+      - code: B15002_016E
+        label: "Male: Master's degree"
+      - code: B15002_017E
+        label: "Male: Professional school degree"
+      - code: B15002_018E
+        label: "Male: Doctorate degree"
+      - code: B15002_019E
+        label: "Female"
+      - code: B15002_020E
+        label: "Female: No schooling completed"
+      - code: B15002_021E
+        label: "Female: Nursery to 4th grade"
+      - code: B15002_022E
+        label: "Female: 5th and 6th grade"
+      - code: B15002_023E
+        label: "Female: 7th and 8th grade"
+      - code: B15002_024E
+        label: "Female: 9th grade"
+      - code: B15002_025E
+        label: "Female: 10th grade"
+      - code: B15002_026E
+        label: "Female: 11th grade"
+      - code: B15002_027E
+        label: "Female: 12th grade, no diploma"
+      - code: B15002_028E
+        label: "Female: High school graduate (includes equivalency)"
+      - code: B15002_029E
+        label: "Female: Some college, less than 1 year"
+      - code: B15002_030E
+        label: "Female: Some college, 1 or more years, no degree"
+      - code: B15002_031E
+        label: "Female: Associate's degree"
+      - code: B15002_032E
+        label: "Female: Bachelor's degree"
+      - code: B15002_033E
+        label: "Female: Master's degree"
+      - code: B15002_034E
+        label: "Female: Professional school degree"
+      - code: B15002_035E
+        label: "Female: Doctorate degree"
+
+  enrollment:
+    label: "School Enrollment (Population 3+)"
+    variables:
+      - code: B14001_001E
+        label: "Total population 3 years and over"
+      - code: B14001_002E
+        label: "Enrolled in school"
+      - code: B14001_003E
+        label: "Enrolled: Nursery school or preschool"
+      - code: B14001_004E
+        label: "Enrolled: Kindergarten"
+      - code: B14001_005E
+        label: "Enrolled: Grades 1 to 4"
+      - code: B14001_006E
+        label: "Enrolled: Grades 5 to 8"
+      - code: B14001_007E
+        label: "Enrolled: Grades 9 to 12"
+      - code: B14001_008E
+        label: "Enrolled: College or university (undergraduate)"
+      - code: B14001_009E
+        label: "Enrolled: Graduate or professional school"
+      - code: B14001_010E
+        label: "Not enrolled in school"
+
+  enrollment_public_private:
+    label: "School Enrollment by Type (Public vs. Private)"
+    variables:
+      - code: B14002_001E
+        label: "Total:"
+      - code: B14002_002E
+        label: "Male:"
+      - code: B14002_003E
+        label: "Male: Enrolled in school:"
+      - code: B14002_004E
+        label: "Male: Enrolled in nursery school, preschool:"
+      - code: B14002_005E
+        label: "Male: Nursery/preschool — public school"
+      - code: B14002_006E
+        label: "Male: Nursery/preschool — private school"
+      - code: B14002_007E
+        label: "Male: Enrolled in kindergarten:"
+      - code: B14002_008E
+        label: "Male: Kindergarten — public school"
+      - code: B14002_009E
+        label: "Male: Kindergarten — private school"
+      - code: B14002_010E
+        label: "Male: Enrolled in grade 1 to grade 4:"
+      - code: B14002_011E
+        label: "Male: Grade 1 to 4 — public school"
+      - code: B14002_012E
+        label: "Male: Grade 1 to 4 — private school"
+      - code: B14002_013E
+        label: "Male: Enrolled in grade 5 to grade 8:"
+      - code: B14002_014E
+        label: "Male: Grade 5 to 8 — public school"
+      - code: B14002_015E
+        label: "Male: Grade 5 to 8 — private school"
+      - code: B14002_016E
+        label: "Male: Enrolled in grade 9 to grade 12:"
+      - code: B14002_017E
+        label: "Male: Grade 9 to 12 — public school"
+      - code: B14002_018E
+        label: "Male: Grade 9 to 12 — private school"
+      - code: B14002_019E
+        label: "Male: Enrolled in college undergraduate years:"
+      - code: B14002_020E
+        label: "Male: College undergraduate — public school"
+      - code: B14002_021E
+        label: "Male: College undergraduate — private school"
+      - code: B14002_022E
+        label: "Male: Enrolled in graduate or professional school:"
+      - code: B14002_023E
+        label: "Male: Graduate or professional — public school"
+      - code: B14002_024E
+        label: "Male: Graduate or professional — private school"
+      - code: B14002_025E
+        label: "Male: Not enrolled in school"
+      - code: B14002_026E
+        label: "Female:"
+      - code: B14002_027E
+        label: "Female: Enrolled in school:"
+      - code: B14002_028E
+        label: "Female: Enrolled in nursery school, preschool:"
+      - code: B14002_029E
+        label: "Female: Nursery/preschool — public school"
+      - code: B14002_030E
+        label: "Female: Nursery/preschool — private school"
+      - code: B14002_031E
+        label: "Female: Enrolled in kindergarten:"
+      - code: B14002_032E
+        label: "Female: Kindergarten — public school"
+      - code: B14002_033E
+        label: "Female: Kindergarten — private school"
+      - code: B14002_034E
+        label: "Female: Enrolled in grade 1 to grade 4:"
+      - code: B14002_035E
+        label: "Female: Grade 1 to 4 — public school"
+      - code: B14002_036E
+        label: "Female: Grade 1 to 4 — private school"
+      - code: B14002_037E
+        label: "Female: Enrolled in grade 5 to grade 8:"
+      - code: B14002_038E
+        label: "Female: Grade 5 to 8 — public school"
+      - code: B14002_039E
+        label: "Female: Grade 5 to 8 — private school"
+      - code: B14002_040E
+        label: "Female: Enrolled in grade 9 to grade 12:"
+      - code: B14002_041E
+        label: "Female: Grade 9 to 12 — public school"
+      - code: B14002_042E
+        label: "Female: Grade 9 to 12 — private school"
+      - code: B14002_043E
+        label: "Female: Enrolled in college undergraduate years:"
+      - code: B14002_044E
+        label: "Female: College undergraduate — public school"
+      - code: B14002_045E
+        label: "Female: College undergraduate — private school"
+      - code: B14002_046E
+        label: "Female: Enrolled in graduate or professional school:"
+      - code: B14002_047E
+        label: "Female: Graduate or professional — public school"
+      - code: B14002_048E
+        label: "Female: Graduate or professional — private school"
+      - code: B14002_049E
+        label: "Female: Not enrolled in school"
+
+  digital_access:
+    label: "Computer & Internet Access"
+    variables:
+      - code: B28001_001E
+        label: "Total households"
+      - code: B28001_002E
+        label: "Has a computer"
+      - code: B28001_003E
+        label: "Has a desktop or laptop computer"
+      - code: B28001_005E
+        label: "Has a smartphone"
+      - code: B28001_007E
+        label: "Has a tablet or portable wireless computer"
+      - code: B28001_011E
+        label: "No computer"
+      - code: B28002_001E
+        label: "Total households (internet universe)"
+      - code: B28002_002E
+        label: "With an Internet subscription"
+      - code: B28002_004E
+        label: "Broadband of any type"
+      - code: B28002_005E
+        label: "Cellular data plan"
+      - code: B28002_007E
+        label: "Broadband such as cable, fiber optic or DSL"
+      - code: B28002_012E
+        label: "Internet access without a subscription"
+      - code: B28002_013E
+        label: "No Internet access"

@@ -97,7 +97,7 @@ class CensusClient:
         for df in chunk_dfs[1:]:
             result = result.merge(df, on=geo_keys, how="outer")
 
-        result = filter_to_city(result, geo_level)
+        result = filter_to_city(result, geo_level, city_config)
 
         if result.empty:
             # Empty DataFrame after filtering — return early so the pipeline skips cleanly.

@@ -1,0 +1,87 @@
+topic_name: internet_access
+dataset: acs/acs5
+year: 2022
+
+variable_groups:
+
+  computer_types:
+    label: "Presence and Types of Computers in Household"
+    variables:
+      - code: B28001_001E
+        label: "Total households"
+      - code: B28001_002E
+        label: "Has a computer"
+      - code: B28001_003E
+        label: "Has a desktop or laptop computer"
+      - code: B28001_005E
+        label: "Has a smartphone"
+      - code: B28001_007E
+        label: "Has a tablet or portable wireless computer"
+      - code: B28001_011E
+        label: "No computer"
+
+  internet_subscriptions:
+    label: "Internet Subscriptions in Household"
+    variables:
+      - code: B28002_001E
+        label: "Total households (internet universe)"
+      - code: B28002_002E
+        label: "With an internet subscription"
+      - code: B28002_004E
+        label: "Broadband of any type"
+      - code: B28002_005E
+        label: "Cellular data plan"
+      - code: B28002_007E
+        label: "Broadband such as cable, fiber optic, or DSL"
+      - code: B28002_012E
+        label: "Internet access without a subscription"
+      - code: B28002_013E
+        label: "No internet access"
+
+  internet_by_age:
+    label: "Internet Subscriptions by Age of Householder"
+    variables:
+      - code: B28005_001E
+        label: "Total households"
+      - code: B28005_002E
+        label: "Householder under 35 years: Total"
+      - code: B28005_003E
+        label: "Householder under 35: With internet subscription"
+      - code: B28005_006E
+        label: "Householder under 35: No internet access"
+      - code: B28005_007E
+        label: "Householder 35 to 64 years: Total"
+      - code: B28005_008E
+        label: "Householder 35 to 64: With internet subscription"
+      - code: B28005_011E
+        label: "Householder 35 to 64: No internet access"
+      - code: B28005_012E
+        label: "Householder 65 years and over: Total"
+      - code: B28005_013E
+        label: "Householder 65+: With internet subscription"
+      - code: B28005_016E
+        label: "Householder 65+: No internet access"
+
+  internet_by_income:
+    label: "Internet Subscriptions by Household Income"
+    variables:
+      - code: B28004_001E
+        label: "Total households"
+      - code: B28004_002E
+        label: "Income less than $20,000: Total"
+      - code: B28004_003E
+        label: "Income less than $20,000: With internet subscription"
+      - code: B28004_006E
+        label: "Income less than $20,000: No internet access"
+      - code: B28004_007E
+        label: "Income $20,000 to $74,999: Total"
+      - code: B28004_008E
+        label: "Income $20,000 to $74,999: With internet subscription"
+      - code: B28004_011E
+        label: "Income $20,000 to $74,999: No internet access"
+      - code: B28004_012E
+        label: "Income $75,000 or more: Total"
+      - code: B28004_013E
+        label: "Income $75,000 or more: With internet subscription"
+      - code: B28004_016E
+        label: "Income $75,000 or more: No internet access"

@@ -82,13 +82,30 @@ def fetch_groups(year: int, dataset: str, cache_dir: Path | None = None) -> list
     return groups
 
 
-def fetch_table_shell(table_id: str, year: int, dataset: str) -> dict[str, str]:
+def fetch_table_shell(
+    table_id: str,
+    year: int,
+    dataset: str,
+    cache_dir: Path | None = None,
+) -> dict[str, str]:
     """Return {variable_code: raw_label} for Estimate-only variables in a table.
 
     Keeps only codes that end in 'E' but not 'EA' (annotation) or 'M'/'MA'.
     Raw label format: 'Estimate!!Total:!!Male:!!Under 5 years'
+
+    If cache_dir is provided, results are written to
+    cache_dir/<TABLE_ID>.json and read back on subsequent calls — the same
+    cache location used by variable_validator so shells are only fetched once.
     """
-    url = f"{_BASE}/{year}/{dataset}/groups/{table_id.upper()}.json"
+    table_id = table_id.upper()
+
+    if cache_dir:
+        cache_file = cache_dir / f"{table_id}.json"
+        if cache_file.exists():
+            import json
+            return json.loads(cache_file.read_text())
+
+    url = f"{_BASE}/{year}/{dataset}/groups/{table_id}.json"
     data = _get(url)
     variables = data.get("variables", {})
 
@@ -97,7 +114,14 @@ def fetch_table_shell(table_id: str, year: int, dataset: str) -> dict[str, str]:
         if code.endswith("E") and not code.endswith("EA"):
             result[code] = meta.get("label", code)
 
-    return dict(sorted(result.items()))
+    result = dict(sorted(result.items()))
+
+    if cache_dir and result:
+        import json
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        (cache_dir / f"{table_id}.json").write_text(json.dumps(result))
+
+    return result
 
 
 def shell_to_readable(shell: dict[str, str]) -> dict[str, str]:

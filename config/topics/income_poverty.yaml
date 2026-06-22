@@ -159,31 +159,29 @@ variable_groups:
         label: "At or above poverty: Male"
       - code: B17001_033E
         label: "At or above poverty: Male — under 5 years"
-      - code: B17001_044E
+      - code: B17001_046E
         label: "At or above poverty: Female"
-      - code: B17001_045E
+      - code: B17001_047E
         label: "At or above poverty: Female — under 5 years"
 
   poverty_depth:
     label: "Poverty Depth (Ratio of Income to Poverty Level)"
     variables:
-      - code: B17002_001E
+      - code: C17002_001E
         label: "Total (ratio of income to poverty level universe)"
-      - code: B17002_002E
+      - code: C17002_002E
         label: "Under .50 (deep poverty)"
-      - code: B17002_003E
+      - code: C17002_003E
         label: ".50 to .99 (below poverty)"
-      - code: B17002_004E
+      - code: C17002_004E
         label: "1.00 to 1.24"
-      - code: B17002_005E
+      - code: C17002_005E
         label: "1.25 to 1.49"
-      - code: B17002_006E
-        label: "1.50 to 1.74"
-      - code: B17002_007E
-        label: "1.75 to 1.84"
-      - code: B17002_008E
+      - code: C17002_006E
+        label: "1.50 to 1.84"
+      - code: C17002_007E
         label: "1.85 to 1.99"
-      - code: B17002_009E
+      - code: C17002_008E
         label: "2.00 and over (200% of poverty level)"
 
   poverty_by_race:
@@ -193,7 +191,7 @@ variable_groups:
         label: "Total (poverty by race — all races)"
       - code: B17020_002E
         label: "Below poverty level"
-      - code: B17020_003E
+      - code: B17020_010E
         label: "At or above poverty level"
       - code: B17020A_001E
         label: "White alone — total"
@@ -255,11 +253,11 @@ variable_groups:
         label: "Below poverty: Other family — female householder, no husband"
       - code: B17010_018E
         label: "Below poverty: Female householder — with related children under 18"
-      - code: B17010_024E
+      - code: B17010_022E
         label: "At or above poverty level"
-      - code: B17010_025E
+      - code: B17010_023E
         label: "At or above poverty: Married-couple family"
-      - code: B17010_032E
+      - code: B17010_030E
         label: "At or above poverty: Male householder, no wife"
-      - code: B17010_038E
+      - code: B17010_036E
         label: "At or above poverty: Female householder, no husband"

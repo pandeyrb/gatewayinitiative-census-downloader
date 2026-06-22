@@ -361,15 +361,15 @@ variable_groups:
         label: "Male: 65 to 74 years — with a disability"
       - code: B18101_016E
         label: "Male: 75 years and over — with a disability"
-      - code: B18101_019E
-        label: "Female"
       - code: B18101_021E
+        label: "Female"
+      - code: B18101_026E
         label: "Female: 5 to 17 years — with a disability"
-      - code: B18101_024E
+      - code: B18101_029E
         label: "Female: 18 to 34 years — with a disability"
-      - code: B18101_027E
+      - code: B18101_032E
         label: "Female: 35 to 64 years — with a disability"
-      - code: B18101_030E
+      - code: B18101_035E
         label: "Female: 65 to 74 years — with a disability"
-      - code: B18101_033E
+      - code: B18101_038E
         label: "Female: 75 years and over — with a disability"

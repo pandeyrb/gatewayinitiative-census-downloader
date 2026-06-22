@@ -32,154 +32,154 @@ variable_groups:
       - code: B23001_003E
         label: "Male: 16 to 19 years"
       - code: B23001_006E
-        label: "Male: 16 to 19 — in labor force"
+        label: "Male: 16 to 19 — civilian labor force"
       - code: B23001_007E
         label: "Male: 16 to 19 — civilian labor force employed"
       - code: B23001_008E
         label: "Male: 16 to 19 — civilian labor force unemployed"
-      - code: B23001_009E
+      - code: B23001_010E
         label: "Male: 20 and 21 years"
-      - code: B23001_012E
-        label: "Male: 20 to 21 — civilian labor force employed"
-      - code: B23001_013E
-        label: "Male: 20 to 21 — civilian labor force unemployed"
       - code: B23001_014E
-        label: "Male: 22 to 24 years"
+        label: "Male: 20 to 21 — civilian labor force employed"
+      - code: B23001_015E
+        label: "Male: 20 to 21 — civilian labor force unemployed"
       - code: B23001_017E
+        label: "Male: 22 to 24 years"
+      - code: B23001_021E
         label: "Male: 22 to 24 — civilian labor force employed"
-      - code: B23001_018E
-        label: "Male: 22 to 24 — civilian labor force unemployed"
-      - code: B23001_019E
-        label: "Male: 25 to 29 years"
       - code: B23001_022E
-        label: "Male: 25 to 29 — civilian labor force employed"
-      - code: B23001_023E
-        label: "Male: 25 to 29 — civilian labor force unemployed"
+        label: "Male: 22 to 24 — civilian labor force unemployed"
       - code: B23001_024E
-        label: "Male: 30 to 34 years"
-      - code: B23001_027E
-        label: "Male: 30 to 34 — civilian labor force employed"
+        label: "Male: 25 to 29 years"
       - code: B23001_028E
-        label: "Male: 30 to 34 — civilian labor force unemployed"
+        label: "Male: 25 to 29 — civilian labor force employed"
       - code: B23001_029E
-        label: "Male: 35 to 44 years"
-      - code: B23001_032E
-        label: "Male: 35 to 44 — civilian labor force employed"
-      - code: B23001_033E
-        label: "Male: 35 to 44 — civilian labor force unemployed"
-      - code: B23001_034E
-        label: "Male: 45 to 54 years"
-      - code: B23001_037E
-        label: "Male: 45 to 54 — civilian labor force employed"
+        label: "Male: 25 to 29 — civilian labor force unemployed"
+      - code: B23001_031E
+        label: "Male: 30 to 34 years"
+      - code: B23001_035E
+        label: "Male: 30 to 34 — civilian labor force employed"
+      - code: B23001_036E
+        label: "Male: 30 to 34 — civilian labor force unemployed"
       - code: B23001_038E
-        label: "Male: 45 to 54 — civilian labor force unemployed"
-      - code: B23001_039E
-        label: "Male: 55 to 59 years"
+        label: "Male: 35 to 44 years"
       - code: B23001_042E
-        label: "Male: 55 to 59 — civilian labor force employed"
+        label: "Male: 35 to 44 — civilian labor force employed"
       - code: B23001_043E
-        label: "Male: 55 to 59 — civilian labor force unemployed"
-      - code: B23001_044E
-        label: "Male: 60 and 61 years"
-      - code: B23001_047E
-        label: "Male: 60 to 61 — civilian labor force employed"
-      - code: B23001_048E
-        label: "Male: 60 to 61 — civilian labor force unemployed"
+        label: "Male: 35 to 44 — civilian labor force unemployed"
+      - code: B23001_045E
+        label: "Male: 45 to 54 years"
       - code: B23001_049E
-        label: "Male: 62 to 64 years"
+        label: "Male: 45 to 54 — civilian labor force employed"
+      - code: B23001_050E
+        label: "Male: 45 to 54 — civilian labor force unemployed"
       - code: B23001_052E
-        label: "Male: 62 to 64 — civilian labor force employed"
-      - code: B23001_053E
-        label: "Male: 62 to 64 — civilian labor force unemployed"
-      - code: B23001_054E
-        label: "Male: 65 to 69 years"
+        label: "Male: 55 to 59 years"
+      - code: B23001_056E
+        label: "Male: 55 to 59 — civilian labor force employed"
       - code: B23001_057E
-        label: "Male: 65 to 69 — civilian labor force employed"
-      - code: B23001_058E
-        label: "Male: 65 to 69 — civilian labor force unemployed"
+        label: "Male: 55 to 59 — civilian labor force unemployed"
       - code: B23001_059E
-        label: "Male: 70 to 74 years"
-      - code: B23001_062E
-        label: "Male: 70 to 74 — civilian labor force employed"
+        label: "Male: 60 and 61 years"
+      - code: B23001_063E
+        label: "Male: 60 to 61 — civilian labor force employed"
       - code: B23001_064E
-        label: "Male: 75 years and over"
-      - code: B23001_067E
-        label: "Male: 75+ — civilian labor force employed"
-      - code: B23001_069E
-        label: "Female"
+        label: "Male: 60 to 61 — civilian labor force unemployed"
+      - code: B23001_066E
+        label: "Male: 62 to 64 years"
       - code: B23001_070E
-        label: "Female: 16 to 19 years"
+        label: "Male: 62 to 64 — civilian labor force employed"
+      - code: B23001_071E
+        label: "Male: 62 to 64 — civilian labor force unemployed"
       - code: B23001_073E
-        label: "Female: 16 to 19 — civilian labor force employed"
-      - code: B23001_074E
-        label: "Female: 16 to 19 — civilian labor force unemployed"
+        label: "Male: 65 to 69 years"
       - code: B23001_075E
-        label: "Female: 20 and 21 years"
+        label: "Male: 65 to 69 — civilian labor force employed"
+      - code: B23001_076E
+        label: "Male: 65 to 69 — civilian labor force unemployed"
       - code: B23001_078E
-        label: "Female: 20 to 21 — civilian labor force employed"
-      - code: B23001_079E
-        label: "Female: 20 to 21 — civilian labor force unemployed"
+        label: "Male: 70 to 74 years"
       - code: B23001_080E
-        label: "Female: 22 to 24 years"
+        label: "Male: 70 to 74 — civilian labor force employed"
       - code: B23001_083E
-        label: "Female: 22 to 24 — civilian labor force employed"
-      - code: B23001_084E
-        label: "Female: 22 to 24 — civilian labor force unemployed"
+        label: "Male: 75 years and over"
       - code: B23001_085E
-        label: "Female: 25 to 29 years"
+        label: "Male: 75+ — civilian labor force employed"
       - code: B23001_088E
-        label: "Female: 25 to 29 — civilian labor force employed"
+        label: "Female"
       - code: B23001_089E
-        label: "Female: 25 to 29 — civilian labor force unemployed"
-      - code: B23001_090E
-        label: "Female: 30 to 34 years"
+        label: "Female: 16 to 19 years"
       - code: B23001_093E
-        label: "Female: 30 to 34 — civilian labor force employed"
+        label: "Female: 16 to 19 — civilian labor force employed"
       - code: B23001_094E
-        label: "Female: 30 to 34 — civilian labor force unemployed"
-      - code: B23001_095E
-        label: "Female: 35 to 44 years"
-      - code: B23001_098E
-        label: "Female: 35 to 44 — civilian labor force employed"
-      - code: B23001_099E
-        label: "Female: 35 to 44 — civilian labor force unemployed"
+        label: "Female: 16 to 19 — civilian labor force unemployed"
+      - code: B23001_096E
+        label: "Female: 20 and 21 years"
       - code: B23001_100E
-        label: "Female: 45 to 54 years"
+        label: "Female: 20 to 21 — civilian labor force employed"
+      - code: B23001_101E
+        label: "Female: 20 to 21 — civilian labor force unemployed"
       - code: B23001_103E
-        label: "Female: 45 to 54 — civilian labor force employed"
-      - code: B23001_104E
-        label: "Female: 45 to 54 — civilian labor force unemployed"
-      - code: B23001_105E
-        label: "Female: 55 to 59 years"
+        label: "Female: 22 to 24 years"
+      - code: B23001_107E
+        label: "Female: 22 to 24 — civilian labor force employed"
       - code: B23001_108E
-        label: "Female: 55 to 59 — civilian labor force employed"
-      - code: B23001_109E
-        label: "Female: 55 to 59 — civilian labor force unemployed"
+        label: "Female: 22 to 24 — civilian labor force unemployed"
       - code: B23001_110E
-        label: "Female: 60 and 61 years"
-      - code: B23001_113E
-        label: "Female: 60 to 61 — civilian labor force employed"
+        label: "Female: 25 to 29 years"
       - code: B23001_114E
-        label: "Female: 60 to 61 — civilian labor force unemployed"
+        label: "Female: 25 to 29 — civilian labor force employed"
       - code: B23001_115E
-        label: "Female: 62 to 64 years"
-      - code: B23001_118E
-        label: "Female: 62 to 64 — civilian labor force employed"
-      - code: B23001_119E
-        label: "Female: 62 to 64 — civilian labor force unemployed"
-      - code: B23001_120E
-        label: "Female: 65 to 69 years"
-      - code: B23001_123E
-        label: "Female: 65 to 69 — civilian labor force employed"
+        label: "Female: 25 to 29 — civilian labor force unemployed"
+      - code: B23001_117E
+        label: "Female: 30 to 34 years"
+      - code: B23001_121E
+        label: "Female: 30 to 34 — civilian labor force employed"
+      - code: B23001_122E
+        label: "Female: 30 to 34 — civilian labor force unemployed"
       - code: B23001_124E
-        label: "Female: 65 to 69 — civilian labor force unemployed"
-      - code: B23001_125E
-        label: "Female: 70 to 74 years"
+        label: "Female: 35 to 44 years"
       - code: B23001_128E
+        label: "Female: 35 to 44 — civilian labor force employed"
+      - code: B23001_129E
+        label: "Female: 35 to 44 — civilian labor force unemployed"
+      - code: B23001_131E
+        label: "Female: 45 to 54 years"
+      - code: B23001_135E
+        label: "Female: 45 to 54 — civilian labor force employed"
+      - code: B23001_136E
+        label: "Female: 45 to 54 — civilian labor force unemployed"
+      - code: B23001_138E
+        label: "Female: 55 to 59 years"
+      - code: B23001_142E
+        label: "Female: 55 to 59 — civilian labor force employed"
+      - code: B23001_143E
+        label: "Female: 55 to 59 — civilian labor force unemployed"
+      - code: B23001_145E
+        label: "Female: 60 and 61 years"
+      - code: B23001_149E
+        label: "Female: 60 to 61 — civilian labor force employed"
+      - code: B23001_150E
+        label: "Female: 60 to 61 — civilian labor force unemployed"
+      - code: B23001_152E
+        label: "Female: 62 to 64 years"
+      - code: B23001_156E
+        label: "Female: 62 to 64 — civilian labor force employed"
+      - code: B23001_157E
+        label: "Female: 62 to 64 — civilian labor force unemployed"
+      - code: B23001_159E
+        label: "Female: 65 to 69 years"
+      - code: B23001_161E
+        label: "Female: 65 to 69 — civilian labor force employed"
+      - code: B23001_162E
+        label: "Female: 65 to 69 — civilian labor force unemployed"
+      - code: B23001_164E
+        label: "Female: 70 to 74 years"
+      - code: B23001_166E
         label: "Female: 70 to 74 — civilian labor force employed"
-      - code: B23001_130E
+      - code: B23001_169E
         label: "Female: 75 years and over"
-      - code: B23001_133E
+      - code: B23001_171E
         label: "Female: 75+ — civilian labor force employed"
 
   commute_mode:
@@ -257,9 +257,9 @@ variable_groups:
         label: "Male full-time year-round workers"
       - code: B20017_003E
         label: "Male: Median earnings (dollars)"
-      - code: B20017_004E
-        label: "Female full-time year-round workers"
       - code: B20017_005E
+        label: "Female full-time year-round workers"
+      - code: B20017_006E
         label: "Female: Median earnings (dollars)"
 
   earnings_by_education:

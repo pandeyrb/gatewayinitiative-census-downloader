@@ -19,7 +19,8 @@ A modular Python CLI for downloading US Census Bureau ACS 5-year data for all 26
 6. [Config Files](#6-config-files)
 7. [Output Files](#7-output-files)
 8. [Adding Cities and Topics](#8-adding-cities-and-topics)
-9. [Data Notes](#9-data-notes)
+9. [Data Quality & Verification](#9-data-quality--verification)
+10. [Data Notes](#10-data-notes)
 
 ---
 
@@ -76,7 +77,8 @@ census_downloader/
 │   ├── census_client.py              # Census API wrapper (chunking, retries, parsing)
 │   ├── geo_resolver.py               # Geography parameter builder + per-city filter
 │   ├── variable_loader.py            # Topic YAML loader + variable code validation
-│   ├── pipeline.py                   # Orchestrates fetch → filter → export
+│   ├── pipeline.py                   # Orchestrates validate → fetch → filter → export
+│   ├── variable_validator.py         # Cross-checks every variable code against Census API
 │   └── table_browser.py              # Census table discovery + topic YAML generation
 │
 └── outputs/                          # All generated files (gitignored)
@@ -104,7 +106,7 @@ Eight curated topic files ship with the tool. Each covers a distinct research do
 | Topic slug | What it covers | Key Census tables |
 |---|---|---|
 | `demographics` | Population, age pyramid, race, Hispanic origin, nativity, language, household type, disability | B01001, B02001, B03001, B05001, B06007, B11001, B18101 |
-| `income_poverty` | Income distribution, median income by race, poverty depth, SNAP, family poverty | B19001, B19013, B17001, B17002, B22001 |
+| `income_poverty` | Income distribution, median income by race, poverty depth, SNAP, family poverty | B19001, B19013, B17001, C17002, B22001 |
 | `education` | Educational attainment (25+), attainment by sex, school enrollment, digital access | B15003, B15002, B14001, B28001, B28002 |
 | `housing` | Units, tenure, overcrowding, structure type, age of housing, rent, rent burden, home value | B25001–B25014, B25024, B25034, B25063–B25064, B25070, B25077 |
 | `economic` | Employment status, occupation by sex, median earnings, income inequality (Gini) | B23025, C24010, B20002, B19083 |
@@ -249,6 +251,8 @@ python main.py --city lawrence --topic disability_internet --year 2022 --geo all
 | `--list-cities` | Print all 26 city slugs and exit |
 | `--list-topics` | Print all local topic YAML files and exit |
 | `--codebook` | Write a variable codebook CSV for `--topic` and exit |
+| `--validate` | Check every labeled variable code in `--topic` (or all topics) against the Census API. Prints a report and exits 1 if mismatches are found. |
+| `--export-labeled` | Write `*_labeled.csv` files alongside existing downloads, with columns renamed from variable codes to human-readable labels. Requires `--city` (or omit for all cities). Topic is optional; omit to export all downloaded topics. |
 
 ### Table browser flags
 
@@ -289,6 +293,8 @@ main.py
   └─ pipeline.run_pipeline()
        ├─ variable_loader.load_topic()        reads topic YAML → variable list
        ├─ variable_loader.load_cities()       reads cities.yaml → city FIPS + tract codes
+       ├─ variable_validator.validate_topic() ← checks every code against Census API (cached)
+       │    └─ prints warnings for any label mismatches; does not block the download
        └─ for each geo_level:
             ├─ census_client.CensusClient.fetch()
             │    ├─ geo_resolver.get_for_param()    builds ?for= clause
@@ -339,6 +345,20 @@ Parses topic YAML files, validates variable codes against `^[A-Z][0-9]+[A-Z]?_[0
 #### `downloader/pipeline.py` — Orchestration
 
 Loops over geography levels, calls `CensusClient.fetch()`, warns on variables with >20% null values (indicating Census suppression), writes output files, and generates codebooks.
+
+#### `downloader/variable_validator.py` — Label cross-check against the Census API
+
+Runs automatically before every data fetch. For each variable in the topic YAML that has a configured label, it:
+
+1. Fetches the full table shell from the Census API (cached to disk at `outputs/cache/shells/`).
+2. Checks that the variable code exists in its parent table.
+3. Checks that key terms in the configured label don't contradict the Census label — specifically, flags cases where the label says "female" but the Census reports "male" (or vice versa), and where the label says "below poverty" but the Census reports "above poverty" (or vice versa).
+
+Uses word-boundary regex so "female" never accidentally triggers on "male" as a substring.
+
+**What it catches:** wrong variable codes whose sex or poverty direction flatly contradicts the Census path — the most common class of error when tables are written by hand.
+
+**What it doesn't catch:** wrong sub-group within the correct sex/poverty direction (e.g., picking "married-couple with children" instead of "married-couple total" — both are "at or above poverty"). Those require the manual sanity checks in [Data Quality & Verification](#9-data-quality--verification).
 
 #### `downloader/table_browser.py` — Census table discovery
 
@@ -486,7 +506,104 @@ python main.py --city lawrence --topic food_assistance --year 2022 --geo all
 
 ---
 
-## 9. Data Notes
+## 9. Data Quality & Verification
+
+Census ACS tables are hierarchically nested. Variable numbers are **not sequential across major groups** — the female or "at or above poverty" section of a table always begins much later than you might expect, after dozens of male or "below poverty" sub-rows. When topic YAML files are written by hand without verifying codes against the Census API, it's easy to pick the wrong variable for an entire section.
+
+### Automatic validation
+
+The pipeline runs a label cross-check automatically before every data fetch:
+
+```
+Validating variable labels …
+  ✓  All labeled variables match their Census API definitions.
+```
+
+If any code is misassigned, you'll see a report instead:
+
+```
+  ✗  health: 3 issue(s) found
+
+  [MISMATCH]  B21001_007E  —  group: veteran_status
+    config label : "Female: Total"
+    Census label : Total > Male > 18 to 34 years
+    detail       : Label says "female" but Census variable belongs to the "male" category.
+```
+
+To run validation alone (no data download), across all topics or one:
+
+```bash
+python main.py --validate                       # all 9 topics, exits 1 if any issues
+python main.py --validate --topic health        # one topic
+```
+
+Table shells are cached after the first check, so subsequent validation runs are instant.
+
+### Manual sanity checks
+
+The automatic validator catches sex and poverty-direction contradictions. To catch subtler errors — wrong sub-group within the correct section — run these checks on downloaded data:
+
+**Rule 1 — Male + Female must equal the stated total**
+
+```python
+import pandas as pd
+
+df = pd.read_csv("outputs/lawrence/health/2022/place.csv")
+row = df.iloc[0]
+
+# B27001 health insurance
+assert row["B27001_002E"] + row["B27001_030E"] == row["B27001_001E"], \
+    f"Health insurance: male + female != total"
+
+# B23001 employment by sex/age
+assert row["B23001_002E"] + row["B23001_088E"] == row["B23001_001E"], \
+    f"Employment: male + female != total"
+```
+
+**Rule 2 — Below poverty + at or above must equal the universe**
+
+```python
+pov = pd.read_csv("outputs/lawrence/income_poverty/2022/place.csv")
+row = pov.iloc[0]
+
+assert row["B17001_002E"] + row["B17001_031E"] == row["B17001_001E"], \
+    f"B17001: below + above != total universe"
+```
+
+**Rule 3 — Sex sub-totals within each poverty direction must sum correctly**
+
+```python
+# Below poverty: male + female should equal below poverty total
+below_male   = row["B17001_003E"]
+below_female = row["B17001_017E"]
+below_total  = row["B17001_002E"]
+assert below_male + below_female == below_total, \
+    f"Below poverty male+female mismatch"
+```
+
+**Expected values for Lawrence, MA (2022 ACS5)**
+
+The following checks all pass after the variable codes were corrected. Use these as a baseline — if a re-download produces very different numbers, something may be wrong.
+
+| Table | Variable | Value | What it measures |
+|-------|----------|------:|-----------------|
+| B27001 | Male + Female = Total | 43,242 + 44,094 = 87,336 | Health insurance universe |
+| B21001 | Male + Female = Total | 31,205 + 32,932 = 64,137 | Veteran status universe |
+| B23001 | Male + Female = Total | 32,474 + 34,147 = 66,621 | Employment 16+ universe |
+| B17001 | Below + Above = Total | 16,901 + 70,111 = 87,012 | Poverty status universe |
+| B20017 | Female/Male earnings ratio | $40,021 / $49,414 = 81¢ | Median earnings gender gap |
+
+### What to do if validation flags an issue
+
+1. Run `python main.py --validate --topic <topic>` to see the full report.
+2. Look up the correct variable code: `python main.py --table <TABLE_ID> --shell` or `python lookup_table.py <TABLE_ID>`.
+3. Fix the code in `config/topics/<topic>.yaml`.
+4. Re-run validation to confirm it passes.
+5. Re-download the topic.
+
+---
+
+## 10. Data Notes
 
 ### Census suppression → NaN
 
@@ -504,7 +621,7 @@ Several ACS tables are not published at block-group granularity. Variables from 
 | B05001 | Nativity and citizenship |
 | B06007 | Language spoken at home by place of birth |
 | B17001 | Poverty status by sex by age |
-| B17020 | Poverty status by race |
+| B17020 | Poverty status by race (suppressed at block group) |
 | B27001 | Health insurance by sex and age |
 
 Switch to `--geo tract` or `--geo place` for these variables.

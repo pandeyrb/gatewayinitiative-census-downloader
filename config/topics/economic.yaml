@@ -31,25 +31,25 @@ variable_groups:
         label: "Male: Total"
       - code: C24010_003E
         label: "Male: Management, business, science, and arts"
-      - code: C24010_007E
-        label: "Male: Service"
-      - code: C24010_008E
-        label: "Male: Sales and office"
-      - code: C24010_009E
-        label: "Male: Natural resources, construction, and maintenance"
-      - code: C24010_010E
-        label: "Male: Production, transportation, and material moving"
-      - code: C24010_011E
-        label: "Female: Total"
-      - code: C24010_012E
-        label: "Female: Management, business, science, and arts"
-      - code: C24010_016E
-        label: "Female: Service"
-      - code: C24010_017E
-        label: "Female: Sales and office"
-      - code: C24010_018E
-        label: "Female: Natural resources, construction, and maintenance"
       - code: C24010_019E
+        label: "Male: Service"
+      - code: C24010_027E
+        label: "Male: Sales and office"
+      - code: C24010_030E
+        label: "Male: Natural resources, construction, and maintenance"
+      - code: C24010_034E
+        label: "Male: Production, transportation, and material moving"
+      - code: C24010_038E
+        label: "Female: Total"
+      - code: C24010_039E
+        label: "Female: Management, business, science, and arts"
+      - code: C24010_055E
+        label: "Female: Service"
+      - code: C24010_063E
+        label: "Female: Sales and office"
+      - code: C24010_066E
+        label: "Female: Natural resources, construction, and maintenance"
+      - code: C24010_070E
         label: "Female: Production, transportation, and material moving"
 
   earnings_by_sex:

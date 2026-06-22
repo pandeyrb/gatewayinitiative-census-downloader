@@ -30,6 +30,8 @@ ALL_LEVELS  = ["place", "tract", "block_group", "block"]
 @click.option("--codebook",            is_flag=True,      help="Write variable codebook for --topic and exit.")
 @click.option("--list-cities",         is_flag=True,      help="List all city slugs and exit.")
 @click.option("--list-topics",         is_flag=True,      help="List all local topic files and exit.")
+@click.option("--validate",            is_flag=True,      help="Validate variable labels against Census API for --topic (or all topics). Exits 1 if mismatches found.")
+@click.option("--export-labeled",      is_flag=True,      help="Write labeled CSVs (columns renamed from codes to labels) for --city/--topic (or all downloaded topics). Saved as *_labeled.csv alongside the originals.")
 # --- Census table browser ---
 @click.option("--list-census-tables",  is_flag=True,      help="List all Census tables for --year/--dataset.")
 @click.option("--search",              default=None,       help="Keyword filter for --list-census-tables.")
@@ -39,7 +41,7 @@ ALL_LEVELS  = ["place", "tract", "block_group", "block"]
 @click.option("--create-topic",        default=None,       metavar="TOPIC_NAME",
               help="Generate a topic YAML from --table(s) and save to config/topics/.")
 def main(city, topic, year, geo, dataset, output_format, dry_run, codebook,
-         list_cities, list_topics,
+         list_cities, list_topics, validate, export_labeled,
          list_census_tables, search, table, shell, create_topic):
     """Download US Census ACS 5-year data for MA Gateway Cities."""
 
@@ -59,6 +61,14 @@ def main(city, topic, year, geo, dataset, output_format, dry_run, codebook,
         click.echo("Available topic files:")
         for path in sorted(topic_dir.glob("*.yaml")):
             click.echo(f"  {path.stem}")
+        return
+
+    if validate:
+        _run_validation(topic, CONFIG_DIR, OUTPUT_DIR, year)
+        return
+
+    if export_labeled:
+        _export_labeled(city, topic, year, OUTPUT_DIR)
         return
 
     if codebook:
@@ -280,6 +290,91 @@ def _create_topic_from_tables(
     click.echo(f"  Variables: {total_vars} total")
     click.echo(f"\nNext step:")
     click.echo(f"  python main.py --city lawrence --topic {topic_name} --year {year} --geo all")
+
+
+# ======================================================================= #
+# Helper: validate topic(s)                                                #
+# ======================================================================= #
+
+def _run_validation(topic: str | None, config_dir: Path, output_dir: Path, year: int) -> None:
+    """Validate one or all topics against the Census API and exit."""
+    import sys
+    from downloader.variable_validator import validate_topic, print_report
+
+    topic_dir = config_dir / "topics"
+    topics_to_check = (
+        [topic] if topic else [p.stem for p in sorted(topic_dir.glob("*.yaml"))]
+    )
+
+    total_issues = 0
+    for t in topics_to_check:
+        click.echo(f"\nValidating: {t}")
+        issues = validate_topic(t, config_dir, output_dir, year=year)
+        print_report(issues, t)
+        total_issues += len(issues)
+
+    click.echo()
+    if total_issues == 0:
+        click.echo(f"✓  All {len(topics_to_check)} topic(s) passed validation.")
+        sys.exit(0)
+    else:
+        click.echo(
+            f"✗  {total_issues} issue(s) found across {len(topics_to_check)} topic(s).\n"
+            f"   Fix the variable codes in config/topics/<topic>.yaml and re-run."
+        )
+        sys.exit(1)
+
+
+# ======================================================================= #
+# Helper: export labeled CSVs                                              #
+# ======================================================================= #
+
+def _export_labeled(
+    city: str | None,
+    topic: str | None,
+    year: int,
+    output_dir: Path,
+) -> None:
+    """Rename variable-code columns to human-readable labels and write *_labeled.csv files."""
+    import pandas as pd
+
+    codebook_dir = output_dir / "codebooks"
+    topic_dir = CONFIG_DIR / "topics"
+
+    cities   = [city]  if city  else [d.name for d in sorted(output_dir.iterdir()) if d.is_dir() and d.name not in ("cache", "codebooks")]
+    topics   = [topic] if topic else [p.stem for p in sorted(topic_dir.glob("*.yaml"))]
+
+    total_written = 0
+
+    for c in cities:
+        for t in topics:
+            cb_path = codebook_dir / f"{t}_codebook.csv"
+            if not cb_path.exists():
+                continue
+            codebook = pd.read_csv(cb_path)
+
+            # Build rename map; append code suffix for any duplicate labels
+            label_counts = codebook["label"].value_counts()
+            rename: dict[str, str] = {}
+            for _, row in codebook.iterrows():
+                lbl = row["label"]
+                rename[row["variable_code"]] = lbl if label_counts[lbl] == 1 else f"{lbl} ({row['variable_code']})"
+
+            data_dir = output_dir / c / t / str(year)
+            if not data_dir.exists():
+                continue
+
+            for csv_path in sorted(data_dir.glob("*.csv")):
+                if csv_path.stem.endswith("_labeled"):
+                    continue  # skip previously written labeled files
+                df = pd.read_csv(csv_path)
+                df_labeled = df.rename(columns=rename)
+                out_path = csv_path.with_stem(csv_path.stem + "_labeled")
+                df_labeled.to_csv(out_path, index=False)
+                click.echo(f"  wrote  {out_path.relative_to(output_dir)}")
+                total_written += 1
+
+    click.echo(f"\n{total_written} labeled file(s) written.")
 
 
 if __name__ == "__main__":

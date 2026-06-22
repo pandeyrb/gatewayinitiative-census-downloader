@@ -185,10 +185,10 @@ ATTAINMENT_BANDS = [
 
 OCCUPATION_GROUPS = [
     ("C24010_003E", "Mgmt / Business / Science / Arts"),
-    ("C24010_007E", "Service"),
-    ("C24010_008E", "Sales & Office"),
-    ("C24010_009E", "Natural Resources / Construction"),
-    ("C24010_010E", "Production / Transportation"),
+    ("C24010_019E", "Service"),
+    ("C24010_027E", "Sales & Office"),
+    ("C24010_030E", "Natural Resources / Construction"),
+    ("C24010_034E", "Production / Transportation"),
 ]
 
 
@@ -478,11 +478,11 @@ def fig_internet(row, subtitle) -> go.Figure:
 def fig_health_insurance(row, subtitle) -> go.Figure:
     total = safe(row, "B27001_001E", 1) or 1
     # Sum no-insurance rows for males and females by age group
-    age_labels = ["Under 6", "6–17", "18–24", "25–34", "35–44", "45–54", "55–64", "65–74", "75+"]
-    male_no_ins = ["B27001_004E","B27001_006E","B27001_008E","B27001_010E",
-                   "B27001_012E","B27001_014E","B27001_016E","B27001_018E","B27001_020E"]
-    female_no_ins = ["B27001_023E","B27001_025E","B27001_027E","B27001_029E",
-                     "B27001_031E","B27001_033E","B27001_035E","B27001_037E","B27001_039E"]
+    age_labels = ["Under 6", "6–18", "19–25", "26–34", "35–44", "45–54", "55–64", "65–74", "75+"]
+    male_no_ins = ["B27001_005E","B27001_008E","B27001_011E","B27001_014E",
+                   "B27001_017E","B27001_020E","B27001_023E","B27001_026E","B27001_029E"]
+    female_no_ins = ["B27001_033E","B27001_036E","B27001_039E","B27001_042E",
+                     "B27001_045E","B27001_048E","B27001_051E","B27001_054E","B27001_057E"]
 
     male_vals   = [safe(row, c) for c in male_no_ins]
     female_vals = [safe(row, c) for c in female_no_ins]
@@ -855,11 +855,11 @@ with tab_hlth:
 
         total_pop = safe(hlrow, "B27001_001E", 1) or 1
         male_uninsumed   = sum(safe(hlrow, c) for c in
-                               ["B27001_004E","B27001_006E","B27001_008E","B27001_010E",
-                                "B27001_012E","B27001_014E","B27001_016E","B27001_018E","B27001_020E"])
+                               ["B27001_005E","B27001_008E","B27001_011E","B27001_014E",
+                                "B27001_017E","B27001_020E","B27001_023E","B27001_026E","B27001_029E"])
         female_uninsured = sum(safe(hlrow, c) for c in
-                               ["B27001_023E","B27001_025E","B27001_027E","B27001_029E",
-                                "B27001_031E","B27001_033E","B27001_035E","B27001_037E","B27001_039E"])
+                               ["B27001_033E","B27001_036E","B27001_039E","B27001_042E",
+                                "B27001_045E","B27001_048E","B27001_051E","B27001_054E","B27001_057E"])
         total_uninsured  = male_uninsumed + female_uninsured
 
         vet_n = safe(hlrow, "B21001_002E", None)

@@ -16,6 +16,7 @@ import yaml
 from downloader.census_client import CensusClient
 from downloader.geo_resolver import GEO_LEVELS
 from downloader.variable_loader import load_cities, load_topic
+from downloader.variable_validator import print_report, validate_topic
 
 
 def run_pipeline(
@@ -42,6 +43,20 @@ def run_pipeline(
     print(f"Topic:     {topic}  ({len(variables)} variables)")
     print(f"Dataset:   {dataset}  year={year}")
     print(f"Geo levels: {geo_levels}")
+
+    # --- Validate variable labels against Census API (cached; non-blocking) ---
+    print(f"\nValidating variable labels …")
+    issues = validate_topic(topic, config_dir, output_dir, year=year, dataset=dataset)
+    if issues:
+        print_report(issues, topic)
+        print(
+            f"  !! {len(issues)} label mismatch(es) above — downloaded data may be "
+            f"misidentified.\n"
+            f"     Fix the variable codes in config/topics/{topic}.yaml, then re-run.\n"
+            f"     Use `python main.py --validate --topic {topic}` for a standalone check."
+        )
+    else:
+        print(f"  ✓  All labeled variables match their Census API definitions.")
 
     if dry_run:
         print("\n--- DRY RUN: printing variable list ---")

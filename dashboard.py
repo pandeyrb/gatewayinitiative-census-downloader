@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 # ── Page config ───────────────────────────────────────────────────────────────
+st.title(“Census Downloader Dashboard”)
 st.set_page_config(
     page_title="Lawrence MA · Census Dashboard",
     page_icon="🏙",

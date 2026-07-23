@@ -86,6 +86,214 @@ variable_groups:
       - code: B27001_057E
         label: "Female: 75 years and over — no health insurance"
 
+  insurance_type:
+    label: "Type of Health Insurance Coverage by Age"
+    variables:
+      - code: B27010_001E
+        label: "Total"
+      - code: B27010_002E
+        label: "Under 19 years: Total"
+      - code: B27010_004E
+        label: "Under 19: Employer-based only"
+      - code: B27010_007E
+        label: "Under 19: Medicaid/means-tested only"
+      - code: B27010_010E
+        label: "Under 19: Two or more types"
+      - code: B27010_017E
+        label: "Under 19: No health insurance"
+      - code: B27010_018E
+        label: "19 to 34 years: Total"
+      - code: B27010_020E
+        label: "19 to 34: Employer-based only"
+      - code: B27010_023E
+        label: "19 to 34: Medicaid/means-tested only"
+      - code: B27010_026E
+        label: "19 to 34: Two or more types"
+      - code: B27010_033E
+        label: "19 to 34: No health insurance"
+      - code: B27010_034E
+        label: "35 to 64 years: Total"
+      - code: B27010_036E
+        label: "35 to 64: Employer-based only"
+      - code: B27010_039E
+        label: "35 to 64: Medicaid/means-tested only"
+      - code: B27010_042E
+        label: "35 to 64: Two or more types"
+      - code: B27010_050E
+        label: "35 to 64: No health insurance"
+      - code: B27010_051E
+        label: "65 years and over: Total"
+      - code: B27010_055E
+        label: "65 and over: Medicare only"
+      - code: B27010_062E
+        label: "65 and over: Medicare and Medicaid"
+      - code: B27010_066E
+        label: "65 and over: No health insurance"
+
+  medicaid_coverage:
+    label: "Medicaid/Means-Tested Public Coverage by Sex and Age"
+    variables:
+      - code: C27007_001E
+        label: "Total"
+      - code: C27007_002E
+        label: "Male: Total"
+      - code: C27007_003E
+        label: "Male: Under 19 years: Total"
+      - code: C27007_004E
+        label: "Male: Under 19 years — with Medicaid"
+      - code: C27007_005E
+        label: "Male: Under 19 years — no Medicaid"
+      - code: C27007_006E
+        label: "Male: 19 to 64 years: Total"
+      - code: C27007_007E
+        label: "Male: 19 to 64 years — with Medicaid"
+      - code: C27007_008E
+        label: "Male: 19 to 64 years — no Medicaid"
+      - code: C27007_009E
+        label: "Male: 65 years and over: Total"
+      - code: C27007_010E
+        label: "Male: 65 years and over — with Medicaid"
+      - code: C27007_011E
+        label: "Male: 65 years and over — no Medicaid"
+      - code: C27007_012E
+        label: "Female: Total"
+      - code: C27007_013E
+        label: "Female: Under 19 years: Total"
+      - code: C27007_014E
+        label: "Female: Under 19 years — with Medicaid"
+      - code: C27007_015E
+        label: "Female: Under 19 years — no Medicaid"
+      - code: C27007_016E
+        label: "Female: 19 to 64 years: Total"
+      - code: C27007_017E
+        label: "Female: 19 to 64 years — with Medicaid"
+      - code: C27007_018E
+        label: "Female: 19 to 64 years — no Medicaid"
+      - code: C27007_019E
+        label: "Female: 65 years and over: Total"
+      - code: C27007_020E
+        label: "Female: 65 years and over — with Medicaid"
+      - code: C27007_021E
+        label: "Female: 65 years and over — no Medicaid"
+
+  insurance_by_nativity:
+    label: "Health Insurance Coverage by Nativity"
+    variables:
+      - code: B27020_001E
+        label: "Total"
+      - code: B27020_002E
+        label: "Native born: Total"
+      - code: B27020_003E
+        label: "Native born: With health insurance"
+      - code: B27020_004E
+        label: "Native born: With private health insurance"
+      - code: B27020_005E
+        label: "Native born: With public coverage"
+      - code: B27020_006E
+        label: "Native born: No health insurance"
+      - code: B27020_007E
+        label: "Foreign born: Total"
+      - code: B27020_008E
+        label: "Foreign born: Naturalized citizen: Total"
+      - code: B27020_009E
+        label: "Foreign born: Naturalized citizen — with health insurance"
+      - code: B27020_010E
+        label: "Foreign born: Naturalized citizen — with private health insurance"
+      - code: B27020_011E
+        label: "Foreign born: Naturalized citizen — with public coverage"
+      - code: B27020_012E
+        label: "Foreign born: Naturalized citizen — no health insurance"
+      - code: B27020_013E
+        label: "Foreign born: Noncitizen: Total"
+      - code: B27020_014E
+        label: "Foreign born: Noncitizen — with health insurance"
+      - code: B27020_015E
+        label: "Foreign born: Noncitizen — with private health insurance"
+      - code: B27020_016E
+        label: "Foreign born: Noncitizen — with public coverage"
+      - code: B27020_017E
+        label: "Foreign born: Noncitizen — no health insurance"
+
+  insurance_hispanic:
+    label: "Health Insurance Coverage — Hispanic or Latino Population"
+    variables:
+      - code: C27001I_001E
+        label: "Hispanic or Latino: Total"
+      - code: C27001I_002E
+        label: "Hispanic or Latino: Under 19 years: Total"
+      - code: C27001I_003E
+        label: "Hispanic or Latino: Under 19 — with health insurance"
+      - code: C27001I_004E
+        label: "Hispanic or Latino: Under 19 — no health insurance"
+      - code: C27001I_005E
+        label: "Hispanic or Latino: 19 to 64 years: Total"
+      - code: C27001I_006E
+        label: "Hispanic or Latino: 19 to 64 — with health insurance"
+      - code: C27001I_007E
+        label: "Hispanic or Latino: 19 to 64 — no health insurance"
+      - code: C27001I_008E
+        label: "Hispanic or Latino: 65 years and over: Total"
+      - code: C27001I_009E
+        label: "Hispanic or Latino: 65 and over — with health insurance"
+      - code: C27001I_010E
+        label: "Hispanic or Latino: 65 and over — no health insurance"
+
+  insurance_by_income:
+    label: "Health Insurance Coverage by Household Income"
+    variables:
+      - code: B27015_001E
+        label: "Total"
+      - code: B27015_002E
+        label: "Under $25,000: Total"
+      - code: B27015_003E
+        label: "Under $25,000: With health insurance"
+      - code: B27015_004E
+        label: "Under $25,000: With private health insurance"
+      - code: B27015_005E
+        label: "Under $25,000: With public coverage"
+      - code: B27015_006E
+        label: "Under $25,000: No health insurance"
+      - code: B27015_007E
+        label: "$25,000 to $49,999: Total"
+      - code: B27015_008E
+        label: "$25,000 to $49,999: With health insurance"
+      - code: B27015_009E
+        label: "$25,000 to $49,999: With private health insurance"
+      - code: B27015_010E
+        label: "$25,000 to $49,999: With public coverage"
+      - code: B27015_011E
+        label: "$25,000 to $49,999: No health insurance"
+      - code: B27015_012E
+        label: "$50,000 to $74,999: Total"
+      - code: B27015_013E
+        label: "$50,000 to $74,999: With health insurance"
+      - code: B27015_014E
+        label: "$50,000 to $74,999: With private health insurance"
+      - code: B27015_015E
+        label: "$50,000 to $74,999: With public coverage"
+      - code: B27015_016E
+        label: "$50,000 to $74,999: No health insurance"
+      - code: B27015_017E
+        label: "$75,000 to $99,999: Total"
+      - code: B27015_018E
+        label: "$75,000 to $99,999: With health insurance"
+      - code: B27015_019E
+        label: "$75,000 to $99,999: With private health insurance"
+      - code: B27015_020E
+        label: "$75,000 to $99,999: With public coverage"
+      - code: B27015_021E
+        label: "$75,000 to $99,999: No health insurance"
+      - code: B27015_022E
+        label: "$100,000 or more: Total"
+      - code: B27015_023E
+        label: "$100,000 or more: With health insurance"
+      - code: B27015_024E
+        label: "$100,000 or more: With private health insurance"
+      - code: B27015_025E
+        label: "$100,000 or more: With public coverage"
+      - code: B27015_026E
+        label: "$100,000 or more: No health insurance"
+
   disability:
     label: "Disability Status by Sex and Age (Civilian Noninstitutionalized)"
     variables:
@@ -93,15 +301,15 @@ variable_groups:
         label: "Total civilian noninstitutionalized population"
       - code: B18101_002E
         label: "Male"
-      - code: B18101_004E
-        label: "Male: 5 to 17 years — with a disability"
       - code: B18101_007E
-        label: "Male: 18 to 34 years — with a disability"
+        label: "Male: 5 to 17 years — with a disability"
       - code: B18101_010E
-        label: "Male: 35 to 64 years — with a disability"
+        label: "Male: 18 to 34 years — with a disability"
       - code: B18101_013E
-        label: "Male: 65 to 74 years — with a disability"
+        label: "Male: 35 to 64 years — with a disability"
       - code: B18101_016E
+        label: "Male: 65 to 74 years — with a disability"
+      - code: B18101_019E
         label: "Male: 75 years and over — with a disability"
       - code: B18101_021E
         label: "Female"
@@ -115,6 +323,260 @@ variable_groups:
         label: "Female: 65 to 74 years — with a disability"
       - code: B18101_038E
         label: "Female: 75 years and over — with a disability"
+
+  disability_hearing:
+    label: "Hearing Difficulty by Sex and Age"
+    variables:
+      - code: B18102_001E
+        label: "Total"
+      - code: B18102_002E
+        label: "Male"
+      - code: B18102_007E
+        label: "Male: 5 to 17 years — with hearing difficulty"
+      - code: B18102_010E
+        label: "Male: 18 to 34 years — with hearing difficulty"
+      - code: B18102_013E
+        label: "Male: 35 to 64 years — with hearing difficulty"
+      - code: B18102_016E
+        label: "Male: 65 to 74 years — with hearing difficulty"
+      - code: B18102_019E
+        label: "Male: 75 years and over — with hearing difficulty"
+      - code: B18102_021E
+        label: "Female"
+      - code: B18102_026E
+        label: "Female: 5 to 17 years — with hearing difficulty"
+      - code: B18102_029E
+        label: "Female: 18 to 34 years — with hearing difficulty"
+      - code: B18102_032E
+        label: "Female: 35 to 64 years — with hearing difficulty"
+      - code: B18102_035E
+        label: "Female: 65 to 74 years — with hearing difficulty"
+      - code: B18102_038E
+        label: "Female: 75 years and over — with hearing difficulty"
+
+  disability_vision:
+    label: "Vision Difficulty by Sex and Age"
+    variables:
+      - code: B18103_001E
+        label: "Total"
+      - code: B18103_002E
+        label: "Male"
+      - code: B18103_007E
+        label: "Male: 5 to 17 years — with vision difficulty"
+      - code: B18103_010E
+        label: "Male: 18 to 34 years — with vision difficulty"
+      - code: B18103_013E
+        label: "Male: 35 to 64 years — with vision difficulty"
+      - code: B18103_016E
+        label: "Male: 65 to 74 years — with vision difficulty"
+      - code: B18103_019E
+        label: "Male: 75 years and over — with vision difficulty"
+      - code: B18103_021E
+        label: "Female"
+      - code: B18103_026E
+        label: "Female: 5 to 17 years — with vision difficulty"
+      - code: B18103_029E
+        label: "Female: 18 to 34 years — with vision difficulty"
+      - code: B18103_032E
+        label: "Female: 35 to 64 years — with vision difficulty"
+      - code: B18103_035E
+        label: "Female: 65 to 74 years — with vision difficulty"
+      - code: B18103_038E
+        label: "Female: 75 years and over — with vision difficulty"
+
+  disability_cognitive:
+    label: "Cognitive Difficulty by Sex and Age"
+    variables:
+      - code: B18104_001E
+        label: "Total"
+      - code: B18104_002E
+        label: "Male"
+      - code: B18104_004E
+        label: "Male: 5 to 17 years — with cognitive difficulty"
+      - code: B18104_007E
+        label: "Male: 18 to 34 years — with cognitive difficulty"
+      - code: B18104_010E
+        label: "Male: 35 to 64 years — with cognitive difficulty"
+      - code: B18104_013E
+        label: "Male: 65 to 74 years — with cognitive difficulty"
+      - code: B18104_016E
+        label: "Male: 75 years and over — with cognitive difficulty"
+      - code: B18104_018E
+        label: "Female"
+      - code: B18104_020E
+        label: "Female: 5 to 17 years — with cognitive difficulty"
+      - code: B18104_023E
+        label: "Female: 18 to 34 years — with cognitive difficulty"
+      - code: B18104_026E
+        label: "Female: 35 to 64 years — with cognitive difficulty"
+      - code: B18104_029E
+        label: "Female: 65 to 74 years — with cognitive difficulty"
+      - code: B18104_032E
+        label: "Female: 75 years and over — with cognitive difficulty"
+
+  disability_ambulatory:
+    label: "Ambulatory Difficulty by Sex and Age"
+    variables:
+      - code: B18105_001E
+        label: "Total"
+      - code: B18105_002E
+        label: "Male"
+      - code: B18105_004E
+        label: "Male: 5 to 17 years — with ambulatory difficulty"
+      - code: B18105_007E
+        label: "Male: 18 to 34 years — with ambulatory difficulty"
+      - code: B18105_010E
+        label: "Male: 35 to 64 years — with ambulatory difficulty"
+      - code: B18105_013E
+        label: "Male: 65 to 74 years — with ambulatory difficulty"
+      - code: B18105_016E
+        label: "Male: 75 years and over — with ambulatory difficulty"
+      - code: B18105_018E
+        label: "Female"
+      - code: B18105_020E
+        label: "Female: 5 to 17 years — with ambulatory difficulty"
+      - code: B18105_023E
+        label: "Female: 18 to 34 years — with ambulatory difficulty"
+      - code: B18105_026E
+        label: "Female: 35 to 64 years — with ambulatory difficulty"
+      - code: B18105_029E
+        label: "Female: 65 to 74 years — with ambulatory difficulty"
+      - code: B18105_032E
+        label: "Female: 75 years and over — with ambulatory difficulty"
+
+  disability_selfcare:
+    label: "Self-Care Difficulty by Sex and Age"
+    variables:
+      - code: B18106_001E
+        label: "Total"
+      - code: B18106_002E
+        label: "Male"
+      - code: B18106_004E
+        label: "Male: 5 to 17 years — with self-care difficulty"
+      - code: B18106_007E
+        label: "Male: 18 to 34 years — with self-care difficulty"
+      - code: B18106_010E
+        label: "Male: 35 to 64 years — with self-care difficulty"
+      - code: B18106_013E
+        label: "Male: 65 to 74 years — with self-care difficulty"
+      - code: B18106_016E
+        label: "Male: 75 years and over — with self-care difficulty"
+      - code: B18106_018E
+        label: "Female"
+      - code: B18106_020E
+        label: "Female: 5 to 17 years — with self-care difficulty"
+      - code: B18106_023E
+        label: "Female: 18 to 34 years — with self-care difficulty"
+      - code: B18106_026E
+        label: "Female: 35 to 64 years — with self-care difficulty"
+      - code: B18106_029E
+        label: "Female: 65 to 74 years — with self-care difficulty"
+      - code: B18106_032E
+        label: "Female: 75 years and over — with self-care difficulty"
+
+  disability_and_insurance:
+    label: "Disability Status by Health Insurance Coverage and Age"
+    variables:
+      - code: B18135_001E
+        label: "Total"
+      - code: B18135_002E
+        label: "Under 19 years: Total"
+      - code: B18135_003E
+        label: "Under 19: With a disability"
+      - code: B18135_004E
+        label: "Under 19: With disability — with health insurance"
+      - code: B18135_005E
+        label: "Under 19: With disability — with private insurance"
+      - code: B18135_006E
+        label: "Under 19: With disability — with public coverage"
+      - code: B18135_007E
+        label: "Under 19: With disability — no health insurance"
+      - code: B18135_008E
+        label: "Under 19: No disability"
+      - code: B18135_009E
+        label: "Under 19: No disability — with health insurance"
+      - code: B18135_012E
+        label: "Under 19: No disability — no health insurance"
+      - code: B18135_013E
+        label: "19 to 64 years: Total"
+      - code: B18135_014E
+        label: "19 to 64: With a disability"
+      - code: B18135_015E
+        label: "19 to 64: With disability — with health insurance"
+      - code: B18135_016E
+        label: "19 to 64: With disability — with private insurance"
+      - code: B18135_017E
+        label: "19 to 64: With disability — with public coverage"
+      - code: B18135_018E
+        label: "19 to 64: With disability — no health insurance"
+      - code: B18135_019E
+        label: "19 to 64: No disability"
+      - code: B18135_020E
+        label: "19 to 64: No disability — with health insurance"
+      - code: B18135_023E
+        label: "19 to 64: No disability — no health insurance"
+      - code: B18135_024E
+        label: "65 years and over: Total"
+      - code: B18135_025E
+        label: "65 and over: With a disability"
+      - code: B18135_026E
+        label: "65 and over: With disability — with health insurance"
+      - code: B18135_029E
+        label: "65 and over: With disability — no health insurance"
+      - code: B18135_030E
+        label: "65 and over: No disability"
+      - code: B18135_031E
+        label: "65 and over: No disability — with health insurance"
+      - code: B18135_034E
+        label: "65 and over: No disability — no health insurance"
+
+  disability_and_poverty:
+    label: "Disability Status by Poverty Status and Age"
+    variables:
+      - code: C18130_001E
+        label: "Total"
+      - code: C18130_002E
+        label: "Under 18 years: Total"
+      - code: C18130_003E
+        label: "Under 18: With a disability"
+      - code: C18130_004E
+        label: "Under 18: With disability — below poverty level"
+      - code: C18130_005E
+        label: "Under 18: With disability — at or above poverty level"
+      - code: C18130_006E
+        label: "Under 18: No disability"
+      - code: C18130_007E
+        label: "Under 18: No disability — below poverty level"
+      - code: C18130_008E
+        label: "Under 18: No disability — at or above poverty level"
+      - code: C18130_009E
+        label: "18 to 64 years: Total"
+      - code: C18130_010E
+        label: "18 to 64: With a disability"
+      - code: C18130_011E
+        label: "18 to 64: With disability — below poverty level"
+      - code: C18130_012E
+        label: "18 to 64: With disability — at or above poverty level"
+      - code: C18130_013E
+        label: "18 to 64: No disability"
+      - code: C18130_014E
+        label: "18 to 64: No disability — below poverty level"
+      - code: C18130_015E
+        label: "18 to 64: No disability — at or above poverty level"
+      - code: C18130_016E
+        label: "65 years and over: Total"
+      - code: C18130_017E
+        label: "65 and over: With a disability"
+      - code: C18130_018E
+        label: "65 and over: With disability — below poverty level"
+      - code: C18130_019E
+        label: "65 and over: With disability — at or above poverty level"
+      - code: C18130_020E
+        label: "65 and over: No disability"
+      - code: C18130_021E
+        label: "65 and over: No disability — below poverty level"
+      - code: C18130_022E
+        label: "65 and over: No disability — at or above poverty level"
 
   veteran_status:
     label: "Veteran Status by Sex (Civilian Population 18+)"
@@ -137,3 +599,67 @@ variable_groups:
         label: "Female: Veteran"
       - code: B21001_024E
         label: "Female: Nonveteran"
+
+  veteran_employment:
+    label: "Veteran Employment Status by Age (Civilian Population 18 to 64 Years)"
+    variables:
+      - code: B21005_001E
+        label: "Total civilian population 18 to 64 years"
+      - code: B21005_002E
+        label: "18 to 34 years: Total"
+      - code: B21005_003E
+        label: "18 to 34: Veteran"
+      - code: B21005_004E
+        label: "18 to 34: Veteran — in labor force"
+      - code: B21005_005E
+        label: "18 to 34: Veteran — employed"
+      - code: B21005_006E
+        label: "18 to 34: Veteran — unemployed"
+      - code: B21005_007E
+        label: "18 to 34: Veteran — not in labor force"
+      - code: B21005_013E
+        label: "35 to 54 years: Total"
+      - code: B21005_014E
+        label: "35 to 54: Veteran"
+      - code: B21005_015E
+        label: "35 to 54: Veteran — in labor force"
+      - code: B21005_016E
+        label: "35 to 54: Veteran — employed"
+      - code: B21005_017E
+        label: "35 to 54: Veteran — unemployed"
+      - code: B21005_018E
+        label: "35 to 54: Veteran — not in labor force"
+      - code: B21005_024E
+        label: "55 to 64 years: Total"
+      - code: B21005_025E
+        label: "55 to 64: Veteran"
+      - code: B21005_026E
+        label: "55 to 64: Veteran — in labor force"
+      - code: B21005_027E
+        label: "55 to 64: Veteran — employed"
+      - code: B21005_028E
+        label: "55 to 64: Veteran — unemployed"
+      - code: B21005_029E
+        label: "55 to 64: Veteran — not in labor force"
+
+  veteran_disability_rating:
+    label: "Veteran Service-Connected Disability Rating"
+    variables:
+      - code: B21100_001E
+        label: "Total veterans"
+      - code: B21100_002E
+        label: "No service-connected disability rating"
+      - code: B21100_003E
+        label: "Has a service-connected disability rating"
+      - code: B21100_004E
+        label: "Service-connected disability: 0 percent"
+      - code: B21100_005E
+        label: "Service-connected disability: 10 or 20 percent"
+      - code: B21100_006E
+        label: "Service-connected disability: 30 or 40 percent"
+      - code: B21100_007E
+        label: "Service-connected disability: 50 or 60 percent"
+      - code: B21100_008E
+        label: "Service-connected disability: 70 percent or higher"
+      - code: B21100_009E
+        label: "Service-connected disability: Rating not reported"

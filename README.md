@@ -101,7 +101,7 @@ census_downloader/
 
 ### Step 1 — Pick a topic
 
-Eight curated topic files ship with the tool. Each covers a distinct research domain and can be downloaded independently.
+Nine curated topic files ship with the tool. Each covers a distinct research domain and can be downloaded independently.
 
 | Topic slug | What it covers | Key Census tables |
 |---|---|---|
@@ -110,9 +110,10 @@ Eight curated topic files ship with the tool. Each covers a distinct research do
 | `education` | Educational attainment (25+), attainment by sex, school enrollment, digital access | B15003, B15002, B14001, B28001, B28002 |
 | `housing` | Units, tenure, overcrowding, structure type, age of housing, rent, rent burden, home value | B25001–B25014, B25024, B25034, B25063–B25064, B25070, B25077 |
 | `economic` | Employment status, occupation by sex, median earnings, income inequality (Gini) | B23025, C24010, B20002, B19083 |
-| `health` | Health insurance by age/sex, disability by age/sex, veteran status | B27001, B18101, B21001 |
+| `health` | Health insurance by age/sex/nativity/income/type, disability by type/age/sex, disability × insurance/poverty cross-tabs, veteran status, veteran employment, veteran disability ratings | B27001, B27010, C27007, B27020, C27001I, B27015, B18101–B18106, B18135, C18130, B21001, B21005, B21100 |
 | `commuting` | Commute mode, travel time, vehicles available | B08301, B08303, B08013, B08201 |
 | `internet_access` | Computer types, internet subscriptions, access by age and income | B28001, B28002, B28004, B28005 |
+| `disability_characteristics` | Disability prevalence by sex, race, age, and type (hearing/vision/cognitive/ambulatory/self-care/independent living) — counts and percentages | S1810 |
 
 ### Step 2 — Download the data
 
@@ -126,6 +127,7 @@ python main.py --city lawrence --topic economic       --year 2022 --geo all
 python main.py --city lawrence --topic health         --year 2022 --geo all
 python main.py --city lawrence --topic commuting      --year 2022 --geo all
 python main.py --city lawrence --topic internet_access --year 2022 --geo all
+python main.py --city lawrence --topic disability_characteristics --year 2022 --geo all --dataset acs/acs5/subject
 ```
 
 Each command writes four files to `outputs/lawrence/{topic}/2022/`:
@@ -277,7 +279,7 @@ python main.py --city lawrence --topic economic --dry-run
 python main.py --list-census-tables --search "broadband"
 
 # Generate codebook for all topics
-for topic in demographics income_poverty education housing economic health commuting internet_access; do
+for topic in demographics income_poverty education housing economic health commuting internet_access disability_characteristics; do
   python main.py --topic $topic --codebook
 done
 ```
@@ -533,7 +535,7 @@ If any code is misassigned, you'll see a report instead:
 To run validation alone (no data download), across all topics or one:
 
 ```bash
-python main.py --validate                       # all 9 topics, exits 1 if any issues
+python main.py --validate                       # all 10 topics, exits 1 if any issues
 python main.py --validate --topic health        # one topic
 ```
 
@@ -623,6 +625,12 @@ Several ACS tables are not published at block-group granularity. Variables from 
 | B17001 | Poverty status by sex by age |
 | B17020 | Poverty status by race (suppressed at block group) |
 | B27001 | Health insurance by sex and age |
+| C27007 | Medicaid coverage by sex and age |
+| B27020 | Health insurance by nativity |
+| B18135 | Disability × health insurance cross-tab |
+| C18130 | Disability × poverty cross-tab |
+| B21005 | Veteran employment status by age |
+| B21100 | Veteran disability ratings |
 
 Switch to `--geo tract` or `--geo place` for these variables.
 

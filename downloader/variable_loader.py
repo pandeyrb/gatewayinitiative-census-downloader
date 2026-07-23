@@ -17,8 +17,15 @@ from pathlib import Path
 
 import yaml
 
-# Census variable code pattern: letter prefix, digits, optional race-variant letter, underscore, digits, E or M
-_VAR_RE = re.compile(r"^[A-Z][0-9]+[A-Z]?_[0-9]+[EM]$")
+# Census variable code patterns:
+#   Detail / race-variant tables:  B01001_001E, B01001A_001E, C17002_001E
+#   Subject tables (acs/acs5/subject): S1810_C01_001E
+_VAR_RE = re.compile(
+    r"^("
+    r"[A-Z][0-9]+[A-Z]?_[0-9]+[EM]"        # detail / race-variant
+    r"|S[0-9]+_C[0-9]+_[0-9]+[EM]"          # subject tables
+    r")$"
+)
 # Special Census API pseudo-variables that don't follow the standard pattern
 _SPECIAL_VARS = {"NAME", "GEO_ID", "GEOID"}
 

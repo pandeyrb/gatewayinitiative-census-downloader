@@ -351,15 +351,15 @@ variable_groups:
         label: "Total civilian noninstitutionalized population"
       - code: B18101_002E
         label: "Male"
-      - code: B18101_004E
-        label: "Male: 5 to 17 years — with a disability"
       - code: B18101_007E
-        label: "Male: 18 to 34 years — with a disability"
+        label: "Male: 5 to 17 years — with a disability"
       - code: B18101_010E
-        label: "Male: 35 to 64 years — with a disability"
+        label: "Male: 18 to 34 years — with a disability"
       - code: B18101_013E
-        label: "Male: 65 to 74 years — with a disability"
+        label: "Male: 35 to 64 years — with a disability"
       - code: B18101_016E
+        label: "Male: 65 to 74 years — with a disability"
+      - code: B18101_019E
         label: "Male: 75 years and over — with a disability"
       - code: B18101_021E
         label: "Female"

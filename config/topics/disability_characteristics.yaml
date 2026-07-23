@@ -1,0 +1,219 @@
+topic_name: disability_characteristics
+dataset: acs/acs5/subject
+year: 2022
+
+variable_groups:
+
+  disability_overview:
+    label: "Disability Prevalence — Overall and by Sex"
+    variables:
+      - code: S1810_C01_001E
+        label: "Total civilian noninstitutionalized population"
+      - code: S1810_C02_001E
+        label: "With a disability: Total count"
+      - code: S1810_C03_001E
+        label: "Percent with a disability: Total"
+      - code: S1810_C01_002E
+        label: "Male: Total population"
+      - code: S1810_C02_002E
+        label: "Male: With a disability (count)"
+      - code: S1810_C03_002E
+        label: "Male: Percent with a disability"
+      - code: S1810_C01_003E
+        label: "Female: Total population"
+      - code: S1810_C02_003E
+        label: "Female: With a disability (count)"
+      - code: S1810_C03_003E
+        label: "Female: Percent with a disability"
+
+  disability_by_race:
+    label: "Disability Prevalence by Race and Hispanic Origin"
+    variables:
+      - code: S1810_C01_004E
+        label: "White alone: Total population"
+      - code: S1810_C02_004E
+        label: "White alone: With a disability (count)"
+      - code: S1810_C03_004E
+        label: "White alone: Percent with a disability"
+      - code: S1810_C01_005E
+        label: "Black or African American alone: Total population"
+      - code: S1810_C02_005E
+        label: "Black or African American alone: With a disability (count)"
+      - code: S1810_C03_005E
+        label: "Black or African American alone: Percent with a disability"
+      - code: S1810_C01_007E
+        label: "Asian alone: Total population"
+      - code: S1810_C02_007E
+        label: "Asian alone: With a disability (count)"
+      - code: S1810_C03_007E
+        label: "Asian alone: Percent with a disability"
+      - code: S1810_C01_011E
+        label: "White alone, not Hispanic or Latino: Total population"
+      - code: S1810_C02_011E
+        label: "White alone, not Hispanic or Latino: With a disability (count)"
+      - code: S1810_C03_011E
+        label: "White alone, not Hispanic or Latino: Percent with a disability"
+      - code: S1810_C01_012E
+        label: "Hispanic or Latino: Total population"
+      - code: S1810_C02_012E
+        label: "Hispanic or Latino: With a disability (count)"
+      - code: S1810_C03_012E
+        label: "Hispanic or Latino: Percent with a disability"
+
+  disability_by_age:
+    label: "Disability Prevalence by Age Group"
+    variables:
+      - code: S1810_C01_013E
+        label: "Under 5 years: Total population"
+      - code: S1810_C02_013E
+        label: "Under 5 years: With a disability (count)"
+      - code: S1810_C03_013E
+        label: "Under 5 years: Percent with a disability"
+      - code: S1810_C01_014E
+        label: "5 to 17 years: Total population"
+      - code: S1810_C02_014E
+        label: "5 to 17 years: With a disability (count)"
+      - code: S1810_C03_014E
+        label: "5 to 17 years: Percent with a disability"
+      - code: S1810_C01_015E
+        label: "18 to 34 years: Total population"
+      - code: S1810_C02_015E
+        label: "18 to 34 years: With a disability (count)"
+      - code: S1810_C03_015E
+        label: "18 to 34 years: Percent with a disability"
+      - code: S1810_C01_016E
+        label: "35 to 64 years: Total population"
+      - code: S1810_C02_016E
+        label: "35 to 64 years: With a disability (count)"
+      - code: S1810_C03_016E
+        label: "35 to 64 years: Percent with a disability"
+      - code: S1810_C01_017E
+        label: "65 to 74 years: Total population"
+      - code: S1810_C02_017E
+        label: "65 to 74 years: With a disability (count)"
+      - code: S1810_C03_017E
+        label: "65 to 74 years: Percent with a disability"
+      - code: S1810_C01_018E
+        label: "75 years and over: Total population"
+      - code: S1810_C02_018E
+        label: "75 years and over: With a disability (count)"
+      - code: S1810_C03_018E
+        label: "75 years and over: Percent with a disability"
+
+  disability_type_hearing:
+    label: "Hearing Difficulty by Age Group"
+    variables:
+      - code: S1810_C01_019E
+        label: "Hearing difficulty: Total population"
+      - code: S1810_C02_019E
+        label: "Hearing difficulty: With hearing difficulty (count)"
+      - code: S1810_C03_019E
+        label: "Hearing difficulty: Percent with hearing difficulty"
+      - code: S1810_C02_020E
+        label: "Hearing difficulty: Under 18 years (count)"
+      - code: S1810_C02_023E
+        label: "Hearing difficulty: 18 to 64 years (count)"
+      - code: S1810_C03_023E
+        label: "Hearing difficulty: 18 to 64 years — percent"
+      - code: S1810_C02_026E
+        label: "Hearing difficulty: 65 years and over (count)"
+      - code: S1810_C03_026E
+        label: "Hearing difficulty: 65 years and over — percent"
+
+  disability_type_vision:
+    label: "Vision Difficulty by Age Group"
+    variables:
+      - code: S1810_C01_029E
+        label: "Vision difficulty: Total population"
+      - code: S1810_C02_029E
+        label: "Vision difficulty: With vision difficulty (count)"
+      - code: S1810_C03_029E
+        label: "Vision difficulty: Percent with vision difficulty"
+      - code: S1810_C02_030E
+        label: "Vision difficulty: Under 18 years (count)"
+      - code: S1810_C02_033E
+        label: "Vision difficulty: 18 to 64 years (count)"
+      - code: S1810_C03_033E
+        label: "Vision difficulty: 18 to 64 years — percent"
+      - code: S1810_C02_036E
+        label: "Vision difficulty: 65 years and over (count)"
+      - code: S1810_C03_036E
+        label: "Vision difficulty: 65 years and over — percent"
+
+  disability_type_cognitive:
+    label: "Cognitive Difficulty by Age Group"
+    variables:
+      - code: S1810_C01_039E
+        label: "Cognitive difficulty: Total population"
+      - code: S1810_C02_039E
+        label: "Cognitive difficulty: With cognitive difficulty (count)"
+      - code: S1810_C03_039E
+        label: "Cognitive difficulty: Percent with cognitive difficulty"
+      - code: S1810_C02_040E
+        label: "Cognitive difficulty: Under 18 years (count)"
+      - code: S1810_C02_041E
+        label: "Cognitive difficulty: 18 to 64 years (count)"
+      - code: S1810_C03_041E
+        label: "Cognitive difficulty: 18 to 64 years — percent"
+      - code: S1810_C02_044E
+        label: "Cognitive difficulty: 65 years and over (count)"
+      - code: S1810_C03_044E
+        label: "Cognitive difficulty: 65 years and over — percent"
+
+  disability_type_ambulatory:
+    label: "Ambulatory Difficulty by Age Group"
+    variables:
+      - code: S1810_C01_047E
+        label: "Ambulatory difficulty: Total population"
+      - code: S1810_C02_047E
+        label: "Ambulatory difficulty: With ambulatory difficulty (count)"
+      - code: S1810_C03_047E
+        label: "Ambulatory difficulty: Percent with ambulatory difficulty"
+      - code: S1810_C02_048E
+        label: "Ambulatory difficulty: Under 18 years (count)"
+      - code: S1810_C02_049E
+        label: "Ambulatory difficulty: 18 to 64 years (count)"
+      - code: S1810_C03_049E
+        label: "Ambulatory difficulty: 18 to 64 years — percent"
+      - code: S1810_C02_052E
+        label: "Ambulatory difficulty: 65 years and over (count)"
+      - code: S1810_C03_052E
+        label: "Ambulatory difficulty: 65 years and over — percent"
+
+  disability_type_selfcare:
+    label: "Self-Care Difficulty by Age Group"
+    variables:
+      - code: S1810_C01_055E
+        label: "Self-care difficulty: Total population"
+      - code: S1810_C02_055E
+        label: "Self-care difficulty: With self-care difficulty (count)"
+      - code: S1810_C03_055E
+        label: "Self-care difficulty: Percent with self-care difficulty"
+      - code: S1810_C02_056E
+        label: "Self-care difficulty: Under 18 years (count)"
+      - code: S1810_C02_057E
+        label: "Self-care difficulty: 18 to 64 years (count)"
+      - code: S1810_C03_057E
+        label: "Self-care difficulty: 18 to 64 years — percent"
+      - code: S1810_C02_060E
+        label: "Self-care difficulty: 65 years and over (count)"
+      - code: S1810_C03_060E
+        label: "Self-care difficulty: 65 years and over — percent"
+
+  disability_type_independent_living:
+    label: "Independent Living Difficulty by Age Group"
+    variables:
+      - code: S1810_C01_063E
+        label: "Independent living difficulty: Total population (18+)"
+      - code: S1810_C02_063E
+        label: "Independent living difficulty: With difficulty (count)"
+      - code: S1810_C03_063E
+        label: "Independent living difficulty: Percent with difficulty"
+      - code: S1810_C02_064E
+        label: "Independent living difficulty: 18 to 64 years (count)"
+      - code: S1810_C03_064E
+        label: "Independent living difficulty: 18 to 64 years — percent"
+      - code: S1810_C02_067E
+        label: "Independent living difficulty: 65 years and over (count)"
+      - code: S1810_C03_067E
+        label: "Independent living difficulty: 65 years and over — percent"

@@ -264,6 +264,24 @@ variable_groups:
       - code: B25063_026E
         label: "No cash rent"
 
+  rent_by_bedrooms:
+    label: "Median Gross Rent by Bedrooms"
+    variables:
+      - code: B25031_001E
+        label: "Median gross rent: Total"
+      - code: B25031_002E
+        label: "Median gross rent: No bedroom"
+      - code: B25031_003E
+        label: "Median gross rent: 1 bedroom"
+      - code: B25031_004E
+        label: "Median gross rent: 2 bedrooms"
+      - code: B25031_005E
+        label: "Median gross rent: 3 bedrooms"
+      - code: B25031_006E
+        label: "Median gross rent: 4 bedrooms"
+      - code: B25031_007E
+        label: "Median gross rent: 5 or more bedrooms"
+
   rent_burden:
     label: "Rent Burden (Gross Rent as % of Household Income)"
     variables:

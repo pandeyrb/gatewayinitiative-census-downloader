@@ -56,7 +56,6 @@ census_downloader/
 ├── main.py                           # CLI entry point (Click)
 ├── dashboard.py                      # Streamlit multi-topic dashboard (Lawrence, MA)
 ├── lookup_table.py                   # Local ACS Table Shells viewer (no API needed)
-├── explore.py                        # Terminal data explorer
 ├── requirements.txt
 ├── .env                              # Census API key (not committed)
 │
@@ -70,7 +69,9 @@ census_downloader/
 │       ├── economic.yaml             # Employment status, occupation, earnings
 │       ├── health.yaml               # Health insurance, disability, veteran status
 │       ├── commuting.yaml            # Commute mode, travel time, vehicles
-│       └── internet_access.yaml      # Computer & internet subscriptions by income/age
+│       ├── employment.yaml           # Employment by sex/age, commute, earnings by sex/education
+│       ├── internet_access.yaml      # Computer & internet subscriptions by income/age
+│       └── disability_characteristics.yaml  # S1810 subject table (use --dataset acs/acs5/subject)
 │
 ├── downloader/
 │   ├── __init__.py
@@ -101,7 +102,7 @@ census_downloader/
 
 ### Step 1 — Pick a topic
 
-Nine curated topic files ship with the tool. Each covers a distinct research domain and can be downloaded independently.
+Ten curated topic files ship with the tool. Each covers a distinct research domain and can be downloaded independently.
 
 | Topic slug | What it covers | Key Census tables |
 |---|---|---|
@@ -113,17 +114,19 @@ Nine curated topic files ship with the tool. Each covers a distinct research dom
 | `health` | Health insurance by age/sex/nativity/income/type, disability by type/age/sex, disability × insurance/poverty cross-tabs, veteran status, veteran employment, veteran disability ratings | B27001, B27010, C27007, B27020, C27001I, B27015, B18101–B18106, B18135, C18130, B21001, B21005, B21100 |
 | `commuting` | Commute mode, travel time, vehicles available | B08301, B08303, B08013, B08201 |
 | `internet_access` | Computer types, internet subscriptions, access by age and income | B28001, B28002, B28004, B28005 |
+| `employment` | Employment status, employment by sex and age, commute mode and time, median earnings by sex and by education | B23025, B23001, B08301, B08303, B20017, B20004 |
 | `disability_characteristics` | Disability prevalence by sex, race, age, and type (hearing/vision/cognitive/ambulatory/self-care/independent living) — counts and percentages | S1810 |
 
 ### Step 2 — Download the data
 
 ```bash
-# Download all topics for Lawrence (runs 8 commands)
+# Download all topics for Lawrence (runs 10 commands)
 python main.py --city lawrence --topic demographics   --year 2022 --geo all
 python main.py --city lawrence --topic income_poverty --year 2022 --geo all
 python main.py --city lawrence --topic education      --year 2022 --geo all
 python main.py --city lawrence --topic housing        --year 2022 --geo all
 python main.py --city lawrence --topic economic       --year 2022 --geo all
+python main.py --city lawrence --topic employment     --year 2022 --geo all
 python main.py --city lawrence --topic health         --year 2022 --geo all
 python main.py --city lawrence --topic commuting      --year 2022 --geo all
 python main.py --city lawrence --topic internet_access --year 2022 --geo all
@@ -279,7 +282,7 @@ python main.py --city lawrence --topic economic --dry-run
 python main.py --list-census-tables --search "broadband"
 
 # Generate codebook for all topics
-for topic in demographics income_poverty education housing economic health commuting internet_access disability_characteristics; do
+for topic in demographics income_poverty education housing economic employment health commuting internet_access disability_characteristics; do
   python main.py --topic $topic --codebook
 done
 ```
